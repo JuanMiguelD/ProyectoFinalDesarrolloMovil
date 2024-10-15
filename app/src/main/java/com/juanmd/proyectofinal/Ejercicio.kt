@@ -1,12 +1,8 @@
 package com.juanmd.proyectofinal
 
-abstract class Ejercicio {
-
-    abstract var pregunta: String
-
-    constructor(pregunta: String) {
-        this.pregunta = pregunta
-    }
-
+abstract class Ejercicio(
+    open val pregunta: String
+) {
     abstract fun verificarRespuesta(respuesta: String): Boolean
 }
+

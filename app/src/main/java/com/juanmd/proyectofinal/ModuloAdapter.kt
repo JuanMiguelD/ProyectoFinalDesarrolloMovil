@@ -17,9 +17,12 @@ class ModuloAdapter(
     }
 
     override fun onBindViewHolder(holder: ModuloViewHolder, position: Int) {
+
         val modulo = modulos[position]
         holder.textView.text = modulo.nombre
         holder.itemView.setOnClickListener { onItemClick(modulo) }
+
+
     }
 
     override fun getItemCount(): Int {
