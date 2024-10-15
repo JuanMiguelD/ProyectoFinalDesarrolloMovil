@@ -29,13 +29,13 @@ class InicioActivity : AppCompatActivity() {
     }
 
     private fun crearNiveles(): List<Nivel> {
-        val tema1 = Tema("Presentaciones", "urlVideo1", listOf(
-            OpcionMultiple("¿Cómo se dice 'Hola' en inglés?", listOf("Hello", "Hi", "Hey", "Hola"), "Hello")
+        val tema1 = Tema("Presentaciones", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+            OpcionMultiple("¿Cómo se dice 'Hola' en inglés?", listOf("Hello", "Hi", "Hey", "Hola"), "Hello"), OpcionMultiple("¿Cómo se dice 'Adios' en inglés?", listOf("Goodbye", "Aloha", "chao", "sayonara"), "Hi")
         ))
-        val tema2 = Tema("Saludos", "urlVideo2", listOf(
+        val tema2 = Tema("Saludos", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
             OpcionMultiple("¿Cómo se dice 'Adiós' en inglés?", listOf("Bye", "Goodbye", "Later", "Hasta luego"), "Goodbye")
         ))
-        val tema3 = Tema("Frases Comunes", "urlVideo3", listOf(
+        val tema3 = Tema("Frases Comunes", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
             OpcionMultiple("¿Qué significa 'How are you?'?", listOf("¿Cómo estás?", "¿Qué tal?", "¿De dónde eres?", "¿Cómo te llamas?"), "¿Cómo estás?")
         ))
 

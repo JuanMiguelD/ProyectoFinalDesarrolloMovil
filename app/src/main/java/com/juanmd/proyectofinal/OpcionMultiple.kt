@@ -5,8 +5,8 @@ import android.os.Parcelable
 
 class OpcionMultiple(
     override var pregunta: String,
-    private val opciones: List<String>,
-    private val respuestaCorrecta: String
+    val opciones: List<String>,
+    val respuestaCorrecta: String
 ) : Ejercicio(pregunta), Parcelable {
 
     override fun verificarRespuesta(respuesta: String): Boolean {
