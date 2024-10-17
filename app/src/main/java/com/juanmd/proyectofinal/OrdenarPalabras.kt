@@ -3,10 +3,11 @@ package com.juanmd.proyectofinal
 import android.os.Parcel
 import android.os.Parcelable
 
-class OpcionMultiple(
+
+class OrdenarPalabras(
     override var pregunta: String,
-    val opciones: List<String>,
-    val respuestaCorrecta: String
+    val palabrasDesordenadas: List<String>, // Lista de palabras desordenadas
+    val respuestaCorrecta: String // La frase correctamente ordenada
 ) : Ejercicio(pregunta), Parcelable {
 
     override fun verificarRespuesta(respuesta: String): Boolean {
@@ -20,9 +21,9 @@ class OpcionMultiple(
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString("OpcionMultiple") // Escribir el tipo de ejercicio
+        parcel.writeString("OrdenarPalabras")
         parcel.writeString(pregunta)
-        parcel.writeStringList(opciones)
+        parcel.writeStringList(palabrasDesordenadas)
         parcel.writeString(respuestaCorrecta)
     }
 
@@ -30,12 +31,12 @@ class OpcionMultiple(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<OpcionMultiple> {
-        override fun createFromParcel(parcel: Parcel): OpcionMultiple {
-            return OpcionMultiple(parcel)
+    companion object CREATOR : Parcelable.Creator<OrdenarPalabras> {
+        override fun createFromParcel(parcel: Parcel): OrdenarPalabras {
+            return OrdenarPalabras(parcel)
         }
 
-        override fun newArray(size: Int): Array<OpcionMultiple?> {
+        override fun newArray(size: Int): Array<OrdenarPalabras?> {
             return arrayOfNulls(size)
         }
     }
