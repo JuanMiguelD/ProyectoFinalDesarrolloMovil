@@ -11,14 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 class InicioActivity : AppCompatActivity() {
 
     private lateinit var recyclerViewNiveles: RecyclerView
-    private lateinit var niveles: List<Nivel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
 
-        // Inicializar niveles automáticamente
-        niveles = crearNiveles()
+        // Inicializar niveles automáticamente desde el singleton
+        val niveles = ContenidoSingleton.niveles
 
         // Configurar RecyclerView
         recyclerViewNiveles = findViewById(R.id.lista_niveles)
@@ -28,50 +27,12 @@ class InicioActivity : AppCompatActivity() {
         }
     }
 
-    private fun crearNiveles(): List<Nivel> {
-        val tema1 = Tema("Presentaciones", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("¿Cómo se dice 'Hola' en inglés?", listOf("Hello", "Hi", "Hey", "Hola"), "Hello"),
-            CompletarFrase("Completa la frase", "I ___ a teacher", "am")
-
-        ))
-
-        val tema2 = Tema("Saludos", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("¿Cómo se dice 'Adiós' en inglés?", listOf("Bye", "Goodbye", "Later", "Hasta luego"), "Goodbye"),
-            OrdenarPalabras("Ordena las palabras para formar una frase", listOf("are", "How", "you?"), ("How are you?"))
-        ))
-
-        val tema3 = Tema("Frases Comunes", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("¿Qué significa 'How are you?'?", listOf("¿Cómo estás?", "¿Qué tal?", "¿De dónde eres?", "¿Cómo te llamas?"), "¿Cómo estás?")
-        ))
-
-        val modulo1 = Modulo("Introducción al Inglés", listOf(tema1, tema2, tema3))
-        val modulo2 = Modulo("Vocabulario Básico", listOf(tema1, tema2, tema3))
-        val modulo3 = Modulo("Frases Comunes", listOf(tema1, tema2, tema3))
-        val modulo4 = Modulo("Gramática Inicial", listOf(tema1, tema2, tema3))
-
-        val nivelA1 = Nivel("A1", listOf(modulo1, modulo2, modulo3, modulo4))
-        val nivelA2 = Nivel("A2", listOf(modulo1, modulo2, modulo3, modulo4))
-        val nivelB1 = Nivel("B1", listOf(modulo1, modulo2, modulo3, modulo4))
-        val nivelB2 = Nivel("B2", listOf(modulo1, modulo2, modulo3, modulo4))
-        val nivelC1 = Nivel("C1", listOf(modulo1, modulo2, modulo3, modulo4))
-        val nivelC2 = Nivel("C2", listOf(modulo1, modulo2, modulo3, modulo4))
-
-        return listOf(nivelA1, nivelA2,nivelB1,nivelB2,nivelC1,nivelC2)
-    }
-
-
     private fun irAModulos(nivel: Nivel) {
-        Log.d("InicioActivity", "Nivel seleccionado: ${nivel.nombre}")
-        Log.d("InicioActivity", "Número de módulos en el nivel: ${nivel.modulos.size}")
-        nivel.modulos.forEach { modulo ->
-            Log.d("ModulosActivity", "Modulo recibido: ${modulo.nombre}")
-            modulo.temas.forEach { tema ->
-                Log.d("ModulosActivity", "Tema recibido: ${tema.nombre} con ${tema.ejercicios.size} ejercicios")
-            }
-        }
+        // Guardar el nivel seleccionado en el singleton
+        ContenidoSingleton.nivelSeleccionado = nivel
 
+        // Cambiar a la actividad ModulosActivity
         val intent = Intent(this, ModulosActivity::class.java)
-        intent.putExtra("nivel", nivel)
         startActivity(intent)
     }
 }

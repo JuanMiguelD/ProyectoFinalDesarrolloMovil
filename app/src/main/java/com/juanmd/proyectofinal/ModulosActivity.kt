@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-@Suppress("DEPRECATION")
 class ModulosActivity : AppCompatActivity() {
 
     private lateinit var recyclerViewModulos: RecyclerView
@@ -18,23 +18,13 @@ class ModulosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modulos)
 
-        // Asignar nivel a la propiedad global
-        nivel = intent.getParcelableExtra<Nivel>("nivel") ?: run {
+        // Acceder al nivel seleccionado desde el Singleton
+        nivel = ContenidoSingleton.nivelSeleccionado ?: run {
             Log.e("ModulosActivity", "No se recibió ningún nivel")
-            Toast.makeText(this, "Error al cargar los módulos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Error al cargar el nivel", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
-        Log.d("ModulosActivity", "Nivel recibido: ${nivel.nombre}")
-        Log.d("ModulosActivity", "Número de módulos recibidos: ${nivel.modulos.size}")
-
-        nivel.modulos.forEach { modulo ->
-            Log.d("ModulosActivity", "Modulo recibido: ${modulo.nombre}")
-            modulo.temas.forEach { tema ->
-                Log.d("ModulosActivity", "Tema recibido: ${tema.nombre} con ${tema.ejercicios.size} ejercicios")
-            }
-        }
-
 
         // Configurar RecyclerView
         recyclerViewModulos = findViewById(R.id.lista_modulos)
@@ -45,8 +35,10 @@ class ModulosActivity : AppCompatActivity() {
     }
 
     private fun irATemas(modulo: Modulo) {
+        ContenidoSingleton.moduloSeleccionado = modulo
         val intent = Intent(this, TemasActivity::class.java)
-        intent.putExtra("modulo", modulo) // Pasar el módulo seleccionado
         startActivity(intent)
     }
 }
+
+

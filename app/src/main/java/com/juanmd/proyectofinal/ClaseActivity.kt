@@ -1,5 +1,6 @@
 package com.juanmd.proyectofinal
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -10,8 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import android.graphics.Color
-
+import android.util.Log
+import androidx.appcompat.app.AlertDialog
 
 
 class ClaseActivity : AppCompatActivity() {
@@ -20,8 +21,7 @@ class ClaseActivity : AppCompatActivity() {
     private lateinit var botonSiguiente: Button
     private lateinit var preguntasLayout: LinearLayout
     private lateinit var tema: Tema
-    var selectedEnglishWord: String? = null
-    var selectedSpanishWord: String? = null
+
 
     private var indicePreguntaActual = 0
     private lateinit var respuestaEditText: EditText // Definir como propiedad de la clase
@@ -30,7 +30,12 @@ class ClaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clase)
 
-        tema = intent.getParcelableExtra("tema")!!
+        tema = ContenidoSingleton.moduloSeleccionado?.temas?.get(0) ?: run {
+            Log.e("ClaseActivity", "No se recibió ningún tema")
+            Toast.makeText(this, "Error al cargar el tema", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         videoView = findViewById(R.id.videoView)
         botonSiguiente = findViewById(R.id.boton_siguiente)
@@ -80,7 +85,7 @@ class ClaseActivity : AppCompatActivity() {
         if (indicePreguntaActual < tema.ejercicios.size) {
             mostrarPregunta()
         } else {
-            Toast.makeText(this, "¡Completaste todas las preguntas!", Toast.LENGTH_LONG).show()
+            mostrarFelicitacion()
         }
     }
 
@@ -191,6 +196,21 @@ class ClaseActivity : AppCompatActivity() {
             verificarRespuesta(pregunta, respuestaUsuario)
         }
         preguntasLayout.addView(botonVerificar)
+    }
+    //Final de preguntas
+    private fun mostrarFelicitacion() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("¡Felicitaciones!")
+        builder.setMessage("Has completado todas las preguntas correctamente.")
+        builder.setPositiveButton("Aceptar") { dialog, _ ->
+            // Redirigir a TemasActivity
+            val intent = Intent(this, TemasActivity::class.java)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 
 
