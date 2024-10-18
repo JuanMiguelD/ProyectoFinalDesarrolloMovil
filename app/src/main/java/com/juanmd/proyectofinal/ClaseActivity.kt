@@ -12,6 +12,7 @@ import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import android.widget.MediaController
 import androidx.appcompat.app.AlertDialog
 
 
@@ -19,8 +20,10 @@ class ClaseActivity : AppCompatActivity() {
 
     private lateinit var videoView: VideoView
     private lateinit var botonSiguiente: Button
+    private lateinit var mediaController: MediaController
     private lateinit var preguntasLayout: LinearLayout
     private lateinit var tema: Tema
+    private var vidas:Int = 3
 
 
     private var indicePreguntaActual = 0
@@ -30,7 +33,7 @@ class ClaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_clase)
 
-        tema = ContenidoSingleton.moduloSeleccionado?.temas?.get(0) ?: run {
+        tema = ContenidoSingleton.temaSeleccionado?: run {
             Log.e("ClaseActivity", "No se recibió ningún tema")
             Toast.makeText(this, "Error al cargar el tema", Toast.LENGTH_SHORT).show()
             finish()
@@ -41,7 +44,11 @@ class ClaseActivity : AppCompatActivity() {
         botonSiguiente = findViewById(R.id.boton_siguiente)
         preguntasLayout = findViewById(R.id.preguntas_layout)
 
+        mediaController = MediaController(this)
+        mediaController.setAnchorView(videoView)
+
         val videoUri = Uri.parse(tema.videoUrl)
+        videoView.setMediaController(mediaController)
         videoView.setVideoURI(videoUri)
 
         // Mostrar el botón al finalizar el video
@@ -76,17 +83,26 @@ class ClaseActivity : AppCompatActivity() {
     private fun verificarRespuesta(pregunta: Ejercicio, respuestaUsuario: String) {
         if (pregunta.verificarRespuesta(respuestaUsuario)) {
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
+            // Pasar a la siguiente pregunta
+            indicePreguntaActual++
+            if (indicePreguntaActual < tema.ejercicios.size) {
+                mostrarPregunta()
+            } else {
+                mostrarFelicitacion()
+            }
         } else {
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
+            vidas -= 1
+            if (vidas == 0){
+                Toast.makeText(this, "No te preocupes, revisemos el video de nuevo ;)", Toast.LENGTH_SHORT).show()
+                indicePreguntaActual = 0
+                preguntasLayout.visibility = View.GONE
+                videoView.start()
+            }
+
         }
 
-        // Pasar a la siguiente pregunta
-        indicePreguntaActual++
-        if (indicePreguntaActual < tema.ejercicios.size) {
-            mostrarPregunta()
-        } else {
-            mostrarFelicitacion()
-        }
+
     }
 
 
