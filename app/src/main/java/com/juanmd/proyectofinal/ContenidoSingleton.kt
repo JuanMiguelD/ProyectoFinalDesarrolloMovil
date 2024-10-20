@@ -10,7 +10,8 @@ object ContenidoSingleton {
 
         val temaA1M1_1 = Tema("Formal and informal greetings", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
             OpcionMultiple("¿Cómo se dice 'Hola' en inglés?", listOf("Hello", "Hi", "Hey", "Hola"), "Hello"),
-            CompletarFrase("Completa la frase", "I ___ a teacher", "am")
+            CompletarFrase("Completa la frase", "I ___ a teacher", "am"), OpcionMultiple("¿Cómo se dice 'Adiós' en inglés?", listOf("Bye", "Goodbye", "Later", "Hasta luego"), "Goodbye"),
+            OrdenarPalabras("Ordena las palabras para formar una frase", listOf("are", "How", "you?"), "How are you?")
         ))
 
         val temaA1M1_2 = Tema("Introducing oneself and others", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(

@@ -13,6 +13,7 @@ import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.widget.MediaController
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 
 
@@ -24,10 +25,9 @@ class ClaseActivity : AppCompatActivity() {
     private lateinit var preguntasLayout: LinearLayout
     private lateinit var tema: Tema
     private var vidas:Int = 3
-
-
     private var indicePreguntaActual = 0
-    private lateinit var respuestaEditText: EditText // Definir como propiedad de la clase
+    private lateinit var respuestaEditText: EditText
+    private var progreso: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +39,7 @@ class ClaseActivity : AppCompatActivity() {
             finish()
             return
         }
+
 
         videoView = findViewById(R.id.videoView)
         botonSiguiente = findViewById(R.id.boton_siguiente)
@@ -83,13 +84,19 @@ class ClaseActivity : AppCompatActivity() {
     private fun verificarRespuesta(pregunta: Ejercicio, respuestaUsuario: String) {
         if (pregunta.verificarRespuesta(respuestaUsuario)) {
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
-            // Pasar a la siguiente pregunta
+
+            // Aumentar barra de progreso
             indicePreguntaActual++
+            progreso += (100 / tema.ejercicios.size)
+
+
+            // Pasar a la siguiente pregunta
             if (indicePreguntaActual < tema.ejercicios.size) {
                 mostrarPregunta()
             } else {
                 mostrarFelicitacion()
             }
+
         } else {
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
             vidas -= 1
@@ -107,6 +114,7 @@ class ClaseActivity : AppCompatActivity() {
 
 
     private fun mostrarOpcionMultiple(pregunta: OpcionMultiple) {
+        agregarProgressBar()
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -123,6 +131,7 @@ class ClaseActivity : AppCompatActivity() {
     }
 
     private fun mostrarCompletarFrase(pregunta: CompletarFrase) {
+        agregarProgressBar()
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -146,6 +155,7 @@ class ClaseActivity : AppCompatActivity() {
     }
 
     private fun mostrarOrdenarPalabras(pregunta: OrdenarPalabras) {
+        agregarProgressBar()
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -227,6 +237,18 @@ class ClaseActivity : AppCompatActivity() {
         }
         val alertDialog = builder.create()
         alertDialog.show()
+    }
+
+    private fun agregarProgressBar() {
+        val barraProgreso = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        barraProgreso.max = 100
+        barraProgreso.progress = progreso
+        barraProgreso.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+
+        preguntasLayout.addView(barraProgreso, 0) // Lo añadimos al principio
     }
 
 
