@@ -75,8 +75,7 @@ class SingUp : AppCompatActivity() {
 
     private fun addUserToDatabase(name:String, email:String, uid:String){
         mDbref = FirebaseDatabase.getInstance().getReference()
-        val user = User(name, email, uid, "A1", 1, 1)
-        mDbref.child("user").child(uid).setValue(user)
+        mDbref.child("user").child(uid).setValue(User(name,email,uid))
     }
 
 }
