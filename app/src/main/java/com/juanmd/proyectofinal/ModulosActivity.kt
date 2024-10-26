@@ -34,6 +34,15 @@ class ModulosActivity : AppCompatActivity() {
             return
         }
 
+        obtenerProgreso()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        obtenerProgreso()
+    }
+
+    private fun obtenerProgreso() {
         // Obtener datos del usuario actual desde Firebase
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         if (uid != null) {
@@ -53,9 +62,8 @@ class ModulosActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error al cargar datos del usuario", Toast.LENGTH_SHORT).show()
             }
             niveltest.setOnClickListener(){
-                val intent = Intent(this, PruebaModulo::class.java)
+                val intent = Intent(this, PruebaNivel::class.java)
                 startActivity(intent)
-                finish()
             }
 
             verificarProgresoDelUsuario()
@@ -89,7 +97,6 @@ class ModulosActivity : AppCompatActivity() {
         ContenidoSingleton.moduloSeleccionado = modulo
         val intent = Intent(this, TemasActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }
 

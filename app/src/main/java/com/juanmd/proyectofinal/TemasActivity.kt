@@ -82,7 +82,6 @@ class TemasActivity : AppCompatActivity() {
         ContenidoSingleton.temaSeleccionado = tema
         val intent = Intent(this, ClaseActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }
 

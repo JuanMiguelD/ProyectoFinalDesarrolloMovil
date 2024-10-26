@@ -1,6 +1,5 @@
 package com.juanmd.proyectofinal
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -223,8 +222,7 @@ class ClaseActivity : AppCompatActivity() {
         builder.setMessage("Has completado todas las preguntas correctamente.")
         builder.setPositiveButton("Aceptar") { dialog, _ ->
             // Redirigir a TemasActivity
-            val intent = Intent(this, TemasActivity::class.java)
-            startActivity(intent)
+
             finish()
             dialog.dismiss()
         }
@@ -251,6 +249,7 @@ class ClaseActivity : AppCompatActivity() {
                 }
         }
     }
+
 
 
 

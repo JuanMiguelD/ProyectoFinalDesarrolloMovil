@@ -36,27 +36,7 @@ class InicioActivity : AppCompatActivity() {
         mDbref = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
 
         // Obtener el nivel actual y la disponibilidad de los niveles desde Firebase
-        mDbref.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    nivelActual = snapshot.child("NivelActual").getValue(String::class.java)
-
-                    snapshot.child("Progreso").children.forEach { nivelSnapshot ->
-                        val nombreNivel = nivelSnapshot.key
-                        val disponible = nivelSnapshot.child("Disponible").getValue(Boolean::class.java) ?: false
-                        nombreNivel?.let { nivelesDisponibles[it] = disponible }
-                    }
-
-                    configurarRecyclerView()
-                } else {
-                    Log.e("InicioActivity", "No se encontró el usuario en la base de datos.")
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("InicioActivity", "Error al recuperar datos: ${error.message}")
-            }
-        })
+        cargarProgresoUsuario()
     }
 
     private fun configurarRecyclerView() {
@@ -82,6 +62,36 @@ class InicioActivity : AppCompatActivity() {
     private fun esNivelDesbloqueado(nivel: Nivel): Boolean {
         // Verifica si el nivel está marcado como disponible en la base de datos
         return nivelesDisponibles[nivel.nombre] == true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Volver a cargar el progreso al regresar a la actividad
+        cargarProgresoUsuario()
+    }
+
+    fun cargarProgresoUsuario(){
+        mDbref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    nivelActual = snapshot.child("NivelActual").getValue(String::class.java)
+
+                    snapshot.child("Progreso").children.forEach { nivelSnapshot ->
+                        val nombreNivel = nivelSnapshot.key
+                        val disponible = nivelSnapshot.child("Disponible").getValue(Boolean::class.java) ?: false
+                        nombreNivel?.let { nivelesDisponibles[it] = disponible }
+                    }
+
+                    configurarRecyclerView()
+                } else {
+                    Log.e("InicioActivity", "No se encontró el usuario en la base de datos.")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("InicioActivity", "Error al recuperar datos: ${error.message}")
+            }
+        })
     }
 }
 
