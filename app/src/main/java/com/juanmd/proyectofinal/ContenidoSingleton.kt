@@ -546,7 +546,7 @@ object ContenidoSingleton {
         val nivelA2 = Nivel("A2", listOf(modulo1A2, modulo2A2, modulo3A2, modulo4A2, modulo5A2))
         val nivelB1 = Nivel("B1", listOf(modulo1B1, modulo2B1, modulo3B1, modulo4B1, modulo5B1))
         val nivelB2 = Nivel("B2", listOf(modulo1B2, modulo2B2, modulo3B2, modulo4B2, modulo5B2))
-        val nivelC1 = Nivel("C1", listOf(modulo1C1, modulo2C1, modulo3C1, modulo4C1))
+        val nivelC1 = Nivel("C1", listOf(modulo1C1, modulo2C1, modulo3C1, modulo4C1, modulo5C1))
         val nivelC2 = Nivel("C2", listOf(modulo1C2, modulo2C2, modulo3C2, modulo4C2,modulo5C2))
 
         return listOf(nivelA1, nivelA2, nivelB1, nivelB2, nivelC1, nivelC2)

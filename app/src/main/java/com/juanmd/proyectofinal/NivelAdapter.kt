@@ -1,5 +1,6 @@
 package com.juanmd.proyectofinal
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class NivelAdapter(
     private val niveles: List<Nivel>,
+    private val nivelesDisponibles: Map<String, Boolean>,  // Recibe el Map de disponibilidad de niveles
     private val onItemClick: (Nivel) -> Unit
 ) : RecyclerView.Adapter<NivelAdapter.NivelViewHolder>() {
 
@@ -19,7 +21,20 @@ class NivelAdapter(
     override fun onBindViewHolder(holder: NivelViewHolder, position: Int) {
         val nivel = niveles[position]
         holder.textView.text = nivel.nombre
-        holder.itemView.setOnClickListener { onItemClick(nivel) }
+
+        // Verificar si el nivel está desbloqueado en base al Map nivelesDisponibles
+        val desbloqueado = nivelesDisponibles[nivel.nombre] == true
+
+        // Si el nivel está desbloqueado, permite el clic y cambia el color de fondo
+        if (desbloqueado) {
+            holder.itemView.setBackgroundColor(Color.WHITE)
+            holder.itemView.isClickable = true
+            holder.itemView.setOnClickListener { onItemClick(nivel) }
+        } else {
+            // Si está bloqueado, muestra el nivel en gris y deshabilita el clic
+            holder.itemView.setBackgroundColor(Color.LTGRAY)
+            holder.itemView.isClickable = false
+        }
     }
 
     override fun getItemCount(): Int {

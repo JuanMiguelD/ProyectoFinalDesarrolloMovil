@@ -2,6 +2,7 @@ package com.juanmd.proyectofinal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -73,9 +74,49 @@ class SingUp : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDatabase(name:String, email:String, uid:String){
-        mDbref = FirebaseDatabase.getInstance().getReference()
-        mDbref.child("user").child(uid).setValue(User(name,email,uid))
+    private fun addUserToDatabase(name: String, email: String, uid: String) {
+        // Crear la referencia a la base de datos
+        mDbref = FirebaseDatabase.getInstance().getReference("Usuarios")
+
+        // Crea un mapa de progreso con todos los niveles y módulos usando ContenidoSingleton
+        val progreso = ContenidoSingleton.niveles.associate { nivel ->
+            nivel.nombre to mapOf(
+                "Disponible" to (nivel.nombre == "A1"), // Solo el primer nivel se desbloquea inicialmente
+                "ModuloActual" to if (nivel.nombre == "A1") 1 else 0, // Solo "A1" comienza en el primer módulo
+                "Modulos" to nivel.modulos.associate { modulo ->
+                    modulo.nombre to mapOf(
+                        "Temas" to modulo.temas.associate { tema ->
+                            tema.nombre to false // Todos los temas inicializados como no completados
+                        }
+                    )
+                }
+            )
+        }
+
+        // Crea el mapa del usuario completo
+        val user = mapOf(
+            "name" to name,
+            "email" to email,
+            "uid" to uid,
+            "NivelActual" to "A1",
+            "Progreso" to progreso
+        )
+
+        // Guarda los datos del usuario en la base de datos
+        mDbref.child(uid).setValue(user).addOnSuccessListener {
+            Log.d("RealtimeDB", "Usuario agregado con éxito")
+        }.addOnFailureListener { e ->
+            Log.e("RealtimeDB", "Error al agregar usuario: ", e)
+        }
     }
+
+
+
+
+
+
+
+
+
 
 }

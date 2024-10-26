@@ -1,116 +1,81 @@
 package com.juanmd.proyectofinal
 
-import android.net.Uri
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
-import androidx.appcompat.app.AppCompatActivity
-import android.util.Log
-import android.view.Gravity
-import android.widget.MediaController
-import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
+class PruebaNivel : AppCompatActivity() {
 
-class ClaseActivity : AppCompatActivity() {
 
-    private lateinit var videoView: VideoView
-    private lateinit var botonSiguiente: Button
-    private lateinit var mediaController: MediaController
     private lateinit var preguntasLayout: LinearLayout
-    private lateinit var tema: Tema
-    private var vidas:Int = 3
-
-
     private var indicePreguntaActual = 0
+    private var vidas: Int = 3
+    private lateinit var preguntas: List<Ejercicio>
     private lateinit var respuestaEditText: EditText // Definir como propiedad de la clase
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_clase)
+        setContentView(R.layout.activity_prueba_modulo)
 
-        tema = ContenidoSingleton.temaSeleccionado?: run {
-            Log.e("ClaseActivity", "No se recibió ningún tema")
-            Toast.makeText(this, "Error al cargar el tema", Toast.LENGTH_SHORT).show()
-            finish()
-            return
-        }
+        // Acceder al nivel seleccionado desde el Singleton
+        val nivel = ContenidoSingleton.nivelSeleccionado!!.nombre
 
-        videoView = findViewById(R.id.videoView)
-        botonSiguiente = findViewById(R.id.boton_siguiente)
-        preguntasLayout = findViewById(R.id.preguntas_layout)
 
-        mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
+        // Obtener preguntas del módulo
+        preguntas = PreguntasNivel.obtenerPreguntas(nivel)
 
-        val videoUri = Uri.parse(tema.videoUrl)
-        videoView.setMediaController(mediaController)
-        videoView.setVideoURI(videoUri)
+        preguntasLayout = findViewById(R.id.preguntas_container)
 
-        // Mostrar el botón al finalizar el video
-        videoView.setOnCompletionListener {
-            botonSiguiente.visibility = View.VISIBLE
-        }
-
-        // Al hacer clic en el botón, mostrar preguntas
-        botonSiguiente.setOnClickListener {
-            botonSiguiente.visibility = View.GONE
-            mostrarPregunta()
-        }
-
-        videoView.start()
+        // Mostrar la primera pregunta
+        mostrarPregunta()
     }
 
     private fun mostrarPregunta() {
         preguntasLayout.removeAllViews()
-        preguntasLayout.visibility = View.VISIBLE
 
-        if (indicePreguntaActual < tema.ejercicios.size) {
-            val pregunta = tema.ejercicios[indicePreguntaActual]
+        if (indicePreguntaActual < preguntas.size) {
+            val pregunta = preguntas[indicePreguntaActual]
 
             when (pregunta) {
                 is OpcionMultiple -> mostrarOpcionMultiple(pregunta)
                 is CompletarFrase -> mostrarCompletarFrase(pregunta)
                 is OrdenarPalabras -> mostrarOrdenarPalabras(pregunta)
             }
+        } else {
+            mostrarFelicitacion()
         }
     }
 
     private fun verificarRespuesta(pregunta: Ejercicio, respuestaUsuario: String) {
+
         if (pregunta.verificarRespuesta(respuestaUsuario)) {
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
-            // Pasar a la siguiente pregunta
             indicePreguntaActual++
-            if (indicePreguntaActual < tema.ejercicios.size) {
-                mostrarPregunta()
-            } else {
-                mostrarFelicitacion()
-            }
+            mostrarPregunta()
         } else {
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
-            vidas -= 1
-            if (vidas == 0){
-                Toast.makeText(this, "No te preocupes, revisemos el video de nuevo ;)", Toast.LENGTH_SHORT).show()
+            vidas--
+            if (vidas <= 0) {
+                Toast.makeText(this, "No te preocupes, revisemos las preguntas de nuevo ;)", Toast.LENGTH_SHORT).show()
                 indicePreguntaActual = 0
-                preguntasLayout.visibility = View.GONE
-                videoView.start()
+                mostrarPregunta()
             }
-
         }
-
-
     }
 
-
     private fun mostrarOpcionMultiple(pregunta: OpcionMultiple) {
-
         // Crear la barra de progreso programáticamente
         var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
         progressBar.layoutParams = LinearLayout.LayoutParams(
@@ -118,15 +83,13 @@ class ClaseActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         progressBar.max = 100
-        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        progressBar.progress = indicePreguntaActual * (100/preguntas.size)
         preguntasLayout.addView(progressBar)
 
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
-
         preguntasLayout.addView(preguntaTextView)
-
 
         pregunta.opciones.forEach { opcion ->
             val botonOpcion = Button(this)
@@ -146,9 +109,8 @@ class ClaseActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         progressBar.max = 100
-        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        progressBar.progress = indicePreguntaActual * (100/preguntas.size)
         preguntasLayout.addView(progressBar)
-
 
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
@@ -180,8 +142,9 @@ class ClaseActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         progressBar.max = 100
-        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        progressBar.progress = indicePreguntaActual * (100/preguntas.size)
         preguntasLayout.addView(progressBar)
+
 
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
@@ -250,14 +213,14 @@ class ClaseActivity : AppCompatActivity() {
         }
         preguntasLayout.addView(botonVerificar)
     }
-    //Final de preguntas
+
     private fun mostrarFelicitacion() {
+        desbloquearSiguienteNivel()
         val builder = AlertDialog.Builder(this)
-        marcarTemaComoCompletado()
         builder.setTitle("¡Felicitaciones!")
+
         builder.setMessage("Has completado todas las preguntas correctamente.")
         builder.setPositiveButton("Aceptar") { dialog, _ ->
-            // Redirigir a TemasActivity
 
             finish()
             dialog.dismiss()
@@ -266,27 +229,23 @@ class ClaseActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
-    //marcar tema como completado en la base de datos
-    private fun marcarTemaComoCompletado() {
-        // Obtener el UID del usuario actual
+
+    // Función para desbloquear el siguiente Nivel
+    private fun desbloquearSiguienteNivel() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
-        if (uid != null) {
-            // Obtener referencia a la base de datos
-            val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
+        val dbRef = uid?.let { FirebaseDatabase.getInstance().getReference("Usuarios").child(uid) }
+        val nivelActual = ContenidoSingleton.nivelSeleccionado?.nombre.toString()
 
-            // Marcar el tema como completado en el nodo correspondiente
-            val temaCompletado = tema.nombre // Asumiendo que la clase Tema tiene un atributo 'nombre'
-            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString()).child("Temas").child(temaCompletado).setValue(true)
-                .addOnSuccessListener {
-                    Log.d("ClaseActivity", "Tema $temaCompletado marcado como completado.")
-                }
-                .addOnFailureListener { e ->
-                    Log.e("ClaseActivity", "Error al marcar el tema como completado: ", e)
-                }
+        val siguienteNivel = when (nivelActual) {
+            "A1" -> "A2"
+            "A2" -> "B1"
+            "B1" -> "B2"
+
+            else -> return // Salir si no hay siguiente nivel
         }
+
+        dbRef?.child("Progreso")?.child(siguienteNivel)?.child("Disponible")?.setValue(true)
+
     }
-
-
-
 
 }

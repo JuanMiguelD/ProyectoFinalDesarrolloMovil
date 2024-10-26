@@ -5,7 +5,17 @@
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/lista_modulos"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+        android:id="@+id/lista_modulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_prueba_nivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Realizar prueba de nivel"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:padding="16dp"
+        />
 </LinearLayout>
