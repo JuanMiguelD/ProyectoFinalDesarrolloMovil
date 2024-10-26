@@ -242,7 +242,7 @@ class ClaseActivity : AppCompatActivity() {
 
             // Marcar el tema como completado en el nodo correspondiente
             val temaCompletado = tema.nombre // Asumiendo que la clase Tema tiene un atributo 'nombre'
-            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("TemasCompletados").child(temaCompletado).setValue(true)
+            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString()).child("Temas").child(temaCompletado).setValue(true)
                 .addOnSuccessListener {
                     Log.d("ClaseActivity", "Tema $temaCompletado marcado como completado.")
                 }

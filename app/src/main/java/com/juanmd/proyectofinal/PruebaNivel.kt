@@ -1,6 +1,6 @@
 package com.juanmd.proyectofinal
 
-
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
+class PruebaNivel : AppCompatActivity() {
 
-class PruebaModulo : AppCompatActivity() {
 
     private lateinit var preguntasLayout: LinearLayout
-    private lateinit var modulo: Modulo
+    private lateinit var nivel: Nivel
     private var indicePreguntaActual = 0
     private var vidas: Int = 3
     private lateinit var preguntas: List<Ejercicio>
@@ -27,16 +27,19 @@ class PruebaModulo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prueba_modulo)
 
-        // Acceder al módulo seleccionado desde el Singleton
-        modulo = ContenidoSingleton.moduloSeleccionado ?: run {
-            Log.e("PruebaModulo", "No se recibió ningún módulo")
+        // Acceder al nivel seleccionado desde el Singleton
+        val nivel = ContenidoSingleton.nivelSeleccionado?.let {
+            it // Aquí puedes realizar operaciones adicionales con 'it' si es necesario
+        } ?: run {
+            Log.e("PruebaNivel", "No se recibió ningún nivel")
             Toast.makeText(this, "Error al cargar las preguntas", Toast.LENGTH_SHORT).show()
-            finish()
-            return
+            finish() // Cierra la actividad si no hay nivel seleccionado
+            return // Sale de la función
         }
 
+
         // Obtener preguntas del módulo
-        preguntas = PreguntasModulo.obtenerPreguntas(modulo.nombre)
+        preguntas = PreguntasNivel.obtenerPreguntas(nivel.nombre)
 
         preguntasLayout = findViewById(R.id.preguntas_container)
 
@@ -92,6 +95,7 @@ class PruebaModulo : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun mostrarCompletarFrase(pregunta: CompletarFrase) {
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
@@ -111,6 +115,7 @@ class PruebaModulo : AppCompatActivity() {
         preguntasLayout.addView(botonVerificar)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun mostrarOrdenarPalabras(pregunta: OrdenarPalabras) {
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
@@ -144,7 +149,7 @@ class PruebaModulo : AppCompatActivity() {
     }
 
     private fun mostrarFelicitacion() {
-        desbloquearSiguienteModulo()
+        desbloquearSiguienteNivel()
         val builder = AlertDialog.Builder(this)
         builder.setTitle("¡Felicitaciones!")
 
@@ -161,60 +166,37 @@ class PruebaModulo : AppCompatActivity() {
     }
 
 
-    // Función para desbloquear el siguiente módulo
-    private fun desbloquearSiguienteModulo() {
+    // Función para desbloquear el siguiente Nivel
+    private fun desbloquearSiguienteNivel() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
-        if (uid != null) {
-            val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
+        val dbRef = uid?.let { FirebaseDatabase.getInstance().getReference("Usuarios").child(uid) }
 
-            dbRef.child("Progreso")
-                .child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
-                .child("ModuloActual")
-                .get()
-                .addOnSuccessListener { snapshot ->
-                    val moduloActual = snapshot.getValue(Int::class.java) ?: 1
-                    Log.d(
-                        "PruebaModulo",
-                        "El modulo que se seleccionó fue: ${ContenidoSingleton.nivelSeleccionado?.modulos?.get(moduloActual-1)?.nombre}"
-                    )
-                    if(ContenidoSingleton.moduloSeleccionado?.nombre == ContenidoSingleton.nivelSeleccionado?.modulos?.get(moduloActual-1)?.nombre) {
+        // Obtener el nivel actual del usuario
+        if (dbRef != null) {
+            dbRef.child("NivelActual").get().addOnSuccessListener { snapshot ->
+                val nivelActual = ContenidoSingleton.nivelSeleccionado?.nombre.toString()
+                val siguienteNivel = when (nivelActual) {
+                    "A1" -> "A2"
+                    "A2" -> "B1"
+                    "B1" -> "B2"
 
-
-                        if (moduloActual <= 4) { // Verificar si aún no está en el último módulo
-                            val siguienteModulo = moduloActual + 1
-                            dbRef.child("Progreso")
-                                .child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
-                                .child("ModuloActual")
-                                .setValue(siguienteModulo)
-                                .addOnSuccessListener {
-                                    Log.d(
-                                        "PruebaModulo",
-                                        "Se ha desbloqueado el módulo $siguienteModulo."
-                                    )
-                                }
-                                .addOnFailureListener { e ->
-                                    Log.e(
-                                        "PruebaModulo",
-                                        "Error al desbloquear el siguiente módulo: ",
-                                        e
-                                    )
-                                }
-                        } else{
-                            dbRef.child("Progreso")
-                                .child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
-                                .child("ModuloActual")
-                                .setValue(6)
-                        }
-                    }
+                    else -> return@addOnSuccessListener // Salir si no hay siguiente nivel
                 }
-                .addOnFailureListener { e ->
-                    Log.e("PruebaModulo", "Error al obtener el módulo actual: ", e)
+
+                // Crear el mapa con los datos del nuevo nivel
+
+
+                // Actualizar el nodo Progreso para incluir el nuevo nivel
+                dbRef.child("Progreso").child(siguienteNivel).child("Disponible").setValue(true).addOnSuccessListener {
+                    Log.d("ActualizarNodo", "Hijo $siguienteNivel agregado correctamente.")
+                }.addOnFailureListener { e ->
+                    Log.e("ActualizarNodo", "Error al agregar $siguienteNivel: ", e)
                 }
+            }.addOnFailureListener { e ->
+                Log.e("ObtenerNivelActual", "Error al obtener el nivel actual: ", e)
+            }
         }
+
     }
 
-
-
 }
-
-

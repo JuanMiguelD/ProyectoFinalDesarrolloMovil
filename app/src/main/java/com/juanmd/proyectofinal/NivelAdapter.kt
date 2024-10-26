@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class NivelAdapter(
     private val niveles: List<Nivel>,
-    private val nivelActual: String?,  // Para comparar con el nivel del usuario
-    private val moduloActual: Int,      // Módulo actual del usuario
+    private val nivelesDisponibles: Map<String, Boolean>,  // Recibe el Map de disponibilidad de niveles
     private val onItemClick: (Nivel) -> Unit
 ) : RecyclerView.Adapter<NivelAdapter.NivelViewHolder>() {
 
@@ -23,8 +22,8 @@ class NivelAdapter(
         val nivel = niveles[position]
         holder.textView.text = nivel.nombre
 
-        // Verificar si el nivel está desbloqueado
-        val desbloqueado = esNivelDesbloqueado(nivel)
+        // Verificar si el nivel está desbloqueado en base al Map nivelesDisponibles
+        val desbloqueado = nivelesDisponibles[nivel.nombre] == true
 
         // Si el nivel está desbloqueado, permite el clic y cambia el color de fondo
         if (desbloqueado) {
@@ -40,17 +39,6 @@ class NivelAdapter(
 
     override fun getItemCount(): Int {
         return niveles.size
-    }
-
-    private fun esNivelDesbloqueado(nivel: Nivel): Boolean {
-        // Lista ordenada de niveles
-        val ordenNiveles = listOf("A1", "A2", "B1", "B2", "C1", "C2")
-        val indiceNivelActual = ordenNiveles.indexOf(nivelActual)
-        val indiceNivelSeleccionado = ordenNiveles.indexOf(nivel.nombre)
-
-        // Solo se puede acceder a los niveles menores o iguales al nivel actual
-        return indiceNivelSeleccionado <= indiceNivelActual &&
-                (indiceNivelSeleccionado < indiceNivelActual || moduloActual >= 1) // Verifica que haya completado al menos el primer módulo del nivel
     }
 
     class NivelViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

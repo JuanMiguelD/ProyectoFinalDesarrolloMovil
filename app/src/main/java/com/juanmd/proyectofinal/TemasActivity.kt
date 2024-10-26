@@ -56,7 +56,7 @@ class TemasActivity : AppCompatActivity() {
             val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
 
             // Obtener el progreso del usuario
-            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("TemasCompletados").get()
+            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString()).child("Temas").get()
                 .addOnSuccessListener { snapshot ->
                     val temasCompletados = snapshot.value as? Map<String, Boolean> ?: emptyMap()
                     val totalTemas = modulo.temas.size // Obtener la cantidad total de temas

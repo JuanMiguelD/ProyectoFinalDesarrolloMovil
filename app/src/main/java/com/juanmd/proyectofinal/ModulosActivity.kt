@@ -3,6 +3,7 @@ package com.juanmd.proyectofinal
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
@@ -17,10 +18,13 @@ class ModulosActivity : AppCompatActivity() {
     private lateinit var nivel: Nivel
     private lateinit var user: User // Para almacenar el usuario logueado
     private var moduloActual: Int = 1 // Variable para almacenar el módulo actual
+    private lateinit var niveltest: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modulos)
+
+        niveltest = findViewById(R.id.btn_prueba_nivel)
 
         // Acceder al nivel seleccionado desde el Singleton
         nivel = ContenidoSingleton.nivelSeleccionado ?: run {
@@ -48,6 +52,36 @@ class ModulosActivity : AppCompatActivity() {
             }.addOnFailureListener {
                 Toast.makeText(this, "Error al cargar datos del usuario", Toast.LENGTH_SHORT).show()
             }
+            niveltest.setOnClickListener(){
+                val intent = Intent(this, PruebaModulo::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            verificarProgresoDelUsuario()
+        }
+    }
+
+    //verificar si los temas ya han sido completado para desbloquear la prueba de módulo
+    private fun verificarProgresoDelUsuario() {
+        // Obtener el UID del usuario actual
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        if (uid != null) {
+            val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
+
+            // Obtener el progreso del usuario
+            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("ModuloActual").get()
+                .addOnSuccessListener { snapshot ->
+                    val moduloActual = snapshot.getValue(Int::class.java) ?: 1
+
+                    niveltest.isEnabled = (moduloActual == 6)
+
+                }
+                .addOnFailureListener { e ->
+                    Log.e("TemasActivity", "Error al obtener el progreso del usuario: ", e)
+                }
+        } else {
+            Toast.makeText(this, "Error al cargar datos del usuario", Toast.LENGTH_SHORT).show()
         }
     }
 
