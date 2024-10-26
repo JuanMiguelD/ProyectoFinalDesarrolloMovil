@@ -11,7 +11,9 @@ import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import android.view.Gravity
 import android.widget.MediaController
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -108,10 +110,23 @@ class ClaseActivity : AppCompatActivity() {
 
 
     private fun mostrarOpcionMultiple(pregunta: OpcionMultiple) {
+
+        // Crear la barra de progreso programáticamente
+        var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        progressBar.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        progressBar.max = 100
+        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        preguntasLayout.addView(progressBar)
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
+
         preguntasLayout.addView(preguntaTextView)
+
 
         pregunta.opciones.forEach { opcion ->
             val botonOpcion = Button(this)
@@ -124,6 +139,17 @@ class ClaseActivity : AppCompatActivity() {
     }
 
     private fun mostrarCompletarFrase(pregunta: CompletarFrase) {
+        // Crear la barra de progreso programáticamente
+        var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        progressBar.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        progressBar.max = 100
+        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        preguntasLayout.addView(progressBar)
+
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -147,6 +173,16 @@ class ClaseActivity : AppCompatActivity() {
     }
 
     private fun mostrarOrdenarPalabras(pregunta: OrdenarPalabras) {
+        // Crear la barra de progreso programáticamente
+        var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        progressBar.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        progressBar.max = 100
+        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        preguntasLayout.addView(progressBar)
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f

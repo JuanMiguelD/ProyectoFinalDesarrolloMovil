@@ -24,7 +24,7 @@ class TemasActivity : AppCompatActivity() {
         modulotest = findViewById(R.id.btn_prueba_modulo)
 
         // Acceder al módulo seleccionado desde el Singleton
-        modulo = ContenidoSingleton.moduloSeleccionado?: run {
+        modulo = ContenidoSingleton.moduloSeleccionado ?: run {
             Log.e("TemasActivity", "No se recibió ningún módulo")
             Toast.makeText(this, "Error al cargar los temas", Toast.LENGTH_SHORT).show()
             finish()
@@ -38,17 +38,23 @@ class TemasActivity : AppCompatActivity() {
             irAVideo(temaSeleccionado)
         }
 
-        modulotest.setOnClickListener(){
+        modulotest.setOnClickListener {
             val intent = Intent(this, PruebaModulo::class.java)
             startActivity(intent)
-            finish()
         }
 
-        // Verificar el progreso del usuario
+        // Verificar el progreso del usuario al crear la actividad
         verificarProgresoDelUsuario()
     }
 
-    //verificar si los temas ya han sido completado para desbloquear la prueba de módulo
+    // Se llama cada vez que la actividad vuelve al primer plano
+    override fun onResume() {
+        super.onResume()
+        // Verificar el progreso del usuario para asegurarnos de que los datos estén actualizados
+        verificarProgresoDelUsuario()
+    }
+
+    // verificar si los temas ya han sido completados para desbloquear la prueba de módulo
     private fun verificarProgresoDelUsuario() {
         // Obtener el UID del usuario actual
         val uid = FirebaseAuth.getInstance().currentUser?.uid
@@ -56,7 +62,9 @@ class TemasActivity : AppCompatActivity() {
             val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
 
             // Obtener el progreso del usuario
-            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString()).child("Temas").get()
+            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
+                .child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString())
+                .child("Temas").get()
                 .addOnSuccessListener { snapshot ->
                     val temasCompletados = snapshot.value as? Map<String, Boolean> ?: emptyMap()
                     val totalTemas = modulo.temas.size // Obtener la cantidad total de temas
@@ -75,13 +83,11 @@ class TemasActivity : AppCompatActivity() {
         }
     }
 
-
-
-
     private fun irAVideo(tema: Tema) {
         ContenidoSingleton.temaSeleccionado = tema
         val intent = Intent(this, ClaseActivity::class.java)
         startActivity(intent)
     }
 }
+
 

@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -77,6 +78,16 @@ class PruebaModulo : AppCompatActivity() {
     }
 
     private fun mostrarOpcionMultiple(pregunta: OpcionMultiple) {
+        // Crear la barra de progreso programáticamente
+        var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        progressBar.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        progressBar.max = 100
+        progressBar.progress = indicePreguntaActual * (100/preguntas.size)
+        preguntasLayout.addView(progressBar)
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -93,6 +104,16 @@ class PruebaModulo : AppCompatActivity() {
     }
 
     private fun mostrarCompletarFrase(pregunta: CompletarFrase) {
+        // Crear la barra de progreso programáticamente
+        var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        progressBar.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        progressBar.max = 100
+        progressBar.progress = indicePreguntaActual * (100/preguntas.size)
+        preguntasLayout.addView(progressBar)
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -112,6 +133,16 @@ class PruebaModulo : AppCompatActivity() {
     }
 
     private fun mostrarOrdenarPalabras(pregunta: OrdenarPalabras) {
+        // Crear la barra de progreso programáticamente
+        var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
+        progressBar.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        progressBar.max = 100
+        progressBar.progress = indicePreguntaActual * (100/preguntas.size)
+        preguntasLayout.addView(progressBar)
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
@@ -150,9 +181,6 @@ class PruebaModulo : AppCompatActivity() {
 
         builder.setMessage("Has completado todas las preguntas correctamente.")
         builder.setPositiveButton("Aceptar") { dialog, _ ->
-            // Redirigir a TemasActivity
-            val intent = Intent(this, ModulosActivity::class.java)
-            startActivity(intent)
             finish()
             dialog.dismiss()
         }
@@ -173,15 +201,10 @@ class PruebaModulo : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { snapshot ->
                     val moduloActual = snapshot.getValue(Int::class.java) ?: 1
-                    Log.d(
-                        "PruebaModulo",
-                        "El modulo que se seleccionó fue: ${ContenidoSingleton.nivelSeleccionado?.modulos?.get(moduloActual-1)?.nombre}"
-                    )
-                    if(ContenidoSingleton.moduloSeleccionado?.nombre == ContenidoSingleton.nivelSeleccionado?.modulos?.get(moduloActual-1)?.nombre) {
-
-
-                        if (moduloActual <= 4) { // Verificar si aún no está en el último módulo
+                    if(moduloActual-1 <= 4){
+                        if(ContenidoSingleton.moduloSeleccionado?.nombre == ContenidoSingleton.nivelSeleccionado?.modulos?.get(moduloActual-1)?.nombre) {
                             val siguienteModulo = moduloActual + 1
+
                             dbRef.child("Progreso")
                                 .child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
                                 .child("ModuloActual")
@@ -199,13 +222,15 @@ class PruebaModulo : AppCompatActivity() {
                                         e
                                     )
                                 }
-                        } else{
-                            dbRef.child("Progreso")
-                                .child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
-                                .child("ModuloActual")
-                                .setValue(6)
                         }
+
+                    }else{
+                        dbRef.child("Progreso")
+                            .child(ContenidoSingleton.nivelSeleccionado?.nombre.toString())
+                            .child("ModuloActual")
+                            .setValue(6)
                     }
+
                 }
                 .addOnFailureListener { e ->
                     Log.e("PruebaModulo", "Error al obtener el módulo actual: ", e)
