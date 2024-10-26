@@ -2,6 +2,7 @@ package com.juanmd.proyectofinal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -73,9 +74,38 @@ class SingUp : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDatabase(name:String, email:String, uid:String){
-        mDbref = FirebaseDatabase.getInstance().getReference()
-        mDbref.child("user").child(uid).setValue(User(name,email,uid))
+    private fun addUserToDatabase(name: String, email: String, uid: String) {
+        // Crear la referencia a la base de datos
+        mDbref = FirebaseDatabase.getInstance().getReference("Usuarios")
+
+        // Crea un mapa de usuario con la estructura deseada
+        val user = mapOf(
+            "name" to name,
+            "email" to email,
+            "uid" to uid,
+            "NivelActual" to "A1",
+            "Progreso" to mapOf(
+                "A1" to mapOf(
+                    "ModuloActual" to 1,
+                    "TemasCompletados" to mapOf<String, Boolean>(), // Inicia vacío
+                    "TotalTemas" to 4
+                )
+            )
+        )
+
+        // Guarda los datos del usuario en la base de datos
+        mDbref.child(uid).setValue(user).addOnSuccessListener {
+            Log.d("RealtimeDB", "Usuario agregado con éxito")
+        }.addOnFailureListener { e ->
+            Log.e("RealtimeDB", "Error al agregar usuario: ", e)
+        }
     }
+
+
+
+
+
+
+
 
 }

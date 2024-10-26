@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.widget.MediaController
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 
 class ClaseActivity : AppCompatActivity() {
@@ -216,6 +218,7 @@ class ClaseActivity : AppCompatActivity() {
     //Final de preguntas
     private fun mostrarFelicitacion() {
         val builder = AlertDialog.Builder(this)
+        marcarTemaComoCompletado()
         builder.setTitle("¡Felicitaciones!")
         builder.setMessage("Has completado todas las preguntas correctamente.")
         builder.setPositiveButton("Aceptar") { dialog, _ ->
@@ -228,6 +231,27 @@ class ClaseActivity : AppCompatActivity() {
         val alertDialog = builder.create()
         alertDialog.show()
     }
+
+    //marcar tema como completado en la base de datos
+    private fun marcarTemaComoCompletado() {
+        // Obtener el UID del usuario actual
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        if (uid != null) {
+            // Obtener referencia a la base de datos
+            val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
+
+            // Marcar el tema como completado en el nodo correspondiente
+            val temaCompletado = tema.nombre // Asumiendo que la clase Tema tiene un atributo 'nombre'
+            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("TemasCompletados").child(temaCompletado).setValue(true)
+                .addOnSuccessListener {
+                    Log.d("ClaseActivity", "Tema $temaCompletado marcado como completado.")
+                }
+                .addOnFailureListener { e ->
+                    Log.e("ClaseActivity", "Error al marcar el tema como completado: ", e)
+                }
+        }
+    }
+
 
 
 }
