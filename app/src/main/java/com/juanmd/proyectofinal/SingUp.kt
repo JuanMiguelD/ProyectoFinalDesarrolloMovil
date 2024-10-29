@@ -82,7 +82,7 @@ class SingUp : AppCompatActivity() {
         val progreso = ContenidoSingleton.niveles.associate { nivel ->
             nivel.nombre to mapOf(
                 "Disponible" to (nivel.nombre == "A1"), // Solo el primer nivel se desbloquea inicialmente
-                "ModuloActual" to if (nivel.nombre == "A1") 1 else 0, // Solo "A1" comienza en el primer módulo
+                "ModuloActual" to  1,
                 "Modulos" to nivel.modulos.associate { modulo ->
                     modulo.nombre to mapOf(
                         "Temas" to modulo.temas.associate { tema ->
