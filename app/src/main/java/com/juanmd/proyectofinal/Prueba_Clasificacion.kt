@@ -1,5 +1,6 @@
 package com.juanmd.proyectofinal
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -90,7 +91,6 @@ class Prueba_Clasificacion : AppCompatActivity() {
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
             erroresPorNivel[niveles[nivelActualIndex]] = erroresPorNivel[niveles[nivelActualIndex]]!! + 1
             if (erroresPorNivel[niveles[nivelActualIndex]] == 3){
-                nivelActualIndex--
                 clasificarusuario()
                 preguntaActualIndex = 0
                 finish()
@@ -256,10 +256,12 @@ class Prueba_Clasificacion : AppCompatActivity() {
     private fun mostrarFelicitacion() {
 
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("¡Felicitaciones!")
+        builder.setTitle("¡La prueba a terminado!")
 
-        builder.setMessage("Has completado todas las preguntas correctamente.")
+        builder.setMessage("Analizando tus resultados, creemos que lo mejor es empezar desde el nivel ${niveles[nivelActualIndex]} ")
         builder.setPositiveButton("Aceptar") { dialog, _ ->
+            val intent = Intent(this, InicioActivity::class.java)
+            startActivity(intent)
             finish()
             dialog.dismiss()
         }
