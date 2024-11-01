@@ -3,12 +3,12 @@ package com.juanmd.proyectofinal
 
 
 class CompletarFrase(
+    override var enunciado: String,
     override var pregunta: String,
-    val fraseIncompleta: String,
-    val respuestaCorrecta: String
-) : Ejercicio(pregunta) {
+    override var respuesta : String
+) : Ejercicio(enunciado, pregunta, respuesta) {
 
     override fun verificarRespuesta(respuesta: String): Boolean {
-        return respuesta.equals(respuestaCorrecta, ignoreCase = true)
+        return this.respuesta.equals(respuesta, ignoreCase = true)
     }
 }

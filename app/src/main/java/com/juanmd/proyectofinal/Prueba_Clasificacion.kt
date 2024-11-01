@@ -1,106 +1,99 @@
 package com.juanmd.proyectofinal
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
-import androidx.appcompat.app.AppCompatActivity
-import android.util.Log
-import android.view.Gravity
-import android.widget.MediaController
-import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
+
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 
-class ClaseActivity : AppCompatActivity() {
+class Prueba_Clasificacion : AppCompatActivity() {
 
-    private lateinit var videoView: VideoView
-    private lateinit var botonSiguiente: Button
-    private lateinit var mediaController: MediaController
-    private lateinit var preguntasLayout: LinearLayout
-    private lateinit var tema: Tema
-    private var vidas:Int = 3
-
-
-    private var indicePreguntaActual = 0
+    private lateinit var mensajePrueba: LinearLayout
+    private lateinit var continuarButton: Button
     private lateinit var respuestaEditText: EditText // Definir como propiedad de la clase
+    private lateinit var preguntasLayout: LinearLayout
+    private var preguntas: List<Ejercicio> = listOf()  // Cargar preguntas de clasificación aquí
+    private val niveles = listOf("A1", "A2", "B1", "B2", "C1", "C2")
+    private var nivelActualIndex = 0
+    private var preguntaActualIndex = 0
+    private var preguntaprogressBarIndice = 0
+    private var erroresPorNivel = mutableMapOf<String, Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_clase)
+        setContentView(R.layout.activity_prueba_clasificacion)
+        preguntasLayout = findViewById(R.id.preguntas_container)
+        continuarButton = findViewById((R.id.iniciar_prueba))
+        mensajePrueba = findViewById(R.id.mensaje_prueba)
 
-        tema = ContenidoSingleton.temaSeleccionado?: run {
-            Log.e("ClaseActivity", "No se recibió ningún tema")
-            Toast.makeText(this, "Error al cargar el tema", Toast.LENGTH_SHORT).show()
-            finish()
-            return
+
+        continuarButton.setOnClickListener(){
+            mensajePrueba.visibility = View.GONE
+            iniciarPrueba()
         }
+    }
 
-        videoView = findViewById(R.id.videoView)
-        botonSiguiente = findViewById(R.id.boton_siguiente)
-        preguntasLayout = findViewById(R.id.preguntas_layout)
-
-        mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
-
-        val videoUri = Uri.parse(tema.videoUrl)
-        videoView.setMediaController(mediaController)
-        videoView.setVideoURI(videoUri)
-
-        // Mostrar el botón al finalizar el video
-        videoView.setOnCompletionListener {
-            botonSiguiente.visibility = View.VISIBLE
-        }
-
-        // Al hacer clic en el botón, mostrar preguntas
-        botonSiguiente.setOnClickListener {
-            botonSiguiente.visibility = View.GONE
+    private fun iniciarPrueba() {
+        if (nivelActualIndex < niveles.size) {
+            val nivelActual = niveles[nivelActualIndex]
+            preguntas = PreguntasClasificación.obtenerPreguntas(nivelActual)
+            erroresPorNivel[nivelActual] = 0 // Inicia el contador de errores en 0 para el nivel
+            preguntaActualIndex = 0
             mostrarPregunta()
+        } else {
+            clasificarusuario()
+            mostrarFelicitacion()
         }
-
-        videoView.start()
     }
 
     private fun mostrarPregunta() {
         preguntasLayout.removeAllViews()
         preguntasLayout.visibility = View.VISIBLE
 
-        if (indicePreguntaActual < tema.ejercicios.size) {
-            val pregunta = tema.ejercicios[indicePreguntaActual]
+        if (preguntaActualIndex < preguntas.size) {
+            val pregunta = preguntas[preguntaActualIndex]
 
             when (pregunta) {
                 is OpcionMultiple -> mostrarOpcionMultiple(pregunta)
                 is CompletarFrase -> mostrarCompletarFrase(pregunta)
                 is OrdenarPalabras -> mostrarOrdenarPalabras(pregunta)
             }
+        } else {
+            nivelActualIndex++
+            iniciarPrueba() // Pasa al siguiente nivel si todas las preguntas del nivel actual se han contestado
         }
+
     }
 
     private fun verificarRespuesta(pregunta: Ejercicio, respuestaUsuario: String) {
         if (pregunta.verificarRespuesta(respuestaUsuario)) {
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
             // Pasar a la siguiente pregunta
-            indicePreguntaActual++
-            if (indicePreguntaActual < tema.ejercicios.size) {
+            preguntaActualIndex++
+            preguntaprogressBarIndice++
+            if (preguntaActualIndex < preguntas.size) {
                 mostrarPregunta()
             } else {
-                mostrarFelicitacion()
+                nivelActualIndex++
+                iniciarPrueba()
             }
         } else {
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
-            vidas -= 1
-            if (vidas == 0){
-                Toast.makeText(this, "No te preocupes, revisemos el video de nuevo ;)", Toast.LENGTH_SHORT).show()
-                indicePreguntaActual = 0
-                preguntasLayout.visibility = View.GONE
-                videoView.start()
+            erroresPorNivel[niveles[nivelActualIndex]] = erroresPorNivel[niveles[nivelActualIndex]]!! + 1
+            if (erroresPorNivel[niveles[nivelActualIndex]] == 3){
+                nivelActualIndex--
+                clasificarusuario()
+                preguntaActualIndex = 0
+                finish()
             }
 
         }
@@ -118,7 +111,7 @@ class ClaseActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         progressBar.max = 100
-        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        progressBar.progress = preguntaprogressBarIndice * (100/48)
         preguntasLayout.addView(progressBar)
 
         val enunciado = TextView(this)
@@ -150,7 +143,7 @@ class ClaseActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         progressBar.max = 100
-        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        progressBar.progress = preguntaprogressBarIndice * (100/48)
         preguntasLayout.addView(progressBar)
 
 
@@ -184,7 +177,7 @@ class ClaseActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         progressBar.max = 100
-        progressBar.progress = indicePreguntaActual * (100/tema.ejercicios.size)
+        progressBar.progress = preguntaprogressBarIndice * (100/48)
         preguntasLayout.addView(progressBar)
 
         val enunciado = TextView(this)
@@ -259,14 +252,14 @@ class ClaseActivity : AppCompatActivity() {
         }
         preguntasLayout.addView(botonVerificar)
     }
-    //Final de preguntas
+
     private fun mostrarFelicitacion() {
+
         val builder = AlertDialog.Builder(this)
-        marcarTemaComoCompletado()
         builder.setTitle("¡Felicitaciones!")
+
         builder.setMessage("Has completado todas las preguntas correctamente.")
         builder.setPositiveButton("Aceptar") { dialog, _ ->
-            // Redirigir a TemasActivity
             finish()
             dialog.dismiss()
         }
@@ -274,27 +267,32 @@ class ClaseActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
-    //marcar tema como completado en la base de datos
-    private fun marcarTemaComoCompletado() {
-        // Obtener el UID del usuario actual
-        val uid = FirebaseAuth.getInstance().currentUser?.uid
-        if (uid != null) {
-            // Obtener referencia a la base de datos
-            val dbRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(uid)
 
-            // Marcar el tema como completado en el nodo correspondiente
-            val temaCompletado = tema.nombre // Asumiendo que la clase Tema tiene un atributo 'nombre'
-            dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString()).child("Temas").child(temaCompletado).setValue(true)
+    private fun clasificarusuario(){
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+        var nivelActual = niveles[nivelActualIndex]
+        val indexActual = niveles.indexOf(nivelActual)
+        if (indexActual == -1) return // Si no se encuentra el nivel, salir de la función
+
+        // Referencia a la base de datos de Firebase
+        val databaseRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(userId).child("Progreso")
+
+        FirebaseDatabase.getInstance().getReference("Usuarios").child(userId).child("NivelActual").setValue(niveles[nivelActualIndex])
+
+        // Recorre los niveles hasta el actual y desbloquea cada uno
+        for (i in 0..indexActual) {
+            val nivel = niveles[i]
+            databaseRef.child(nivel).child("Disponible").setValue(true)
                 .addOnSuccessListener {
-                    Log.d("ClaseActivity", "Tema $temaCompletado marcado como completado.")
+                    if (i == indexActual) { // Solo muestra el mensaje una vez cuando termina el bucle
+                        Toast.makeText(this, "Nivel $nivelActual y niveles anteriores desbloqueados!", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                .addOnFailureListener { e ->
-                    Log.e("ClaseActivity", "Error al marcar el tema como completado: ", e)
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Error al desbloquear el nivel $nivel: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
         }
+
     }
-
-
-
 
 }

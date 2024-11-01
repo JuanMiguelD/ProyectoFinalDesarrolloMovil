@@ -64,7 +64,7 @@ class SingUp : AppCompatActivity() {
                 println(password)
                 addUserToDatabase(name,email,mAuth.currentUser?.uid!!)
 
-                val intent = Intent(this@SingUp, InicioActivity::class.java)
+                val intent = Intent(this@SingUp, Prueba_Clasificacion::class.java)
                 finish()
                 startActivity(intent)
             } else {

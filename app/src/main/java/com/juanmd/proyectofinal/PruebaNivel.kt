@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -44,6 +45,7 @@ class PruebaNivel : AppCompatActivity() {
 
     private fun mostrarPregunta() {
         preguntasLayout.removeAllViews()
+        preguntasLayout.visibility = View.VISIBLE
 
         if (indicePreguntaActual < preguntas.size) {
             val pregunta = preguntas[indicePreguntaActual]
@@ -53,29 +55,36 @@ class PruebaNivel : AppCompatActivity() {
                 is CompletarFrase -> mostrarCompletarFrase(pregunta)
                 is OrdenarPalabras -> mostrarOrdenarPalabras(pregunta)
             }
-        } else {
-            mostrarFelicitacion()
         }
     }
 
     private fun verificarRespuesta(pregunta: Ejercicio, respuestaUsuario: String) {
-
         if (pregunta.verificarRespuesta(respuestaUsuario)) {
             Toast.makeText(this, "¡Correcto!", Toast.LENGTH_SHORT).show()
+            // Pasar a la siguiente pregunta
             indicePreguntaActual++
-            mostrarPregunta()
+            if (indicePreguntaActual < preguntas.size) {
+                mostrarPregunta()
+            } else {
+                mostrarFelicitacion()
+            }
         } else {
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
-            vidas--
-            if (vidas <= 0) {
-                Toast.makeText(this, "No te preocupes, revisemos las preguntas de nuevo ;)", Toast.LENGTH_SHORT).show()
+            vidas -= 1
+            if (vidas == 0){
+                Toast.makeText(this, "No te preocupes, revisemos el video de nuevo ;)", Toast.LENGTH_SHORT).show()
                 indicePreguntaActual = 0
-                mostrarPregunta()
+                finish()
             }
+
         }
+
+
     }
 
+
     private fun mostrarOpcionMultiple(pregunta: OpcionMultiple) {
+
         // Crear la barra de progreso programáticamente
         var progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal)
         progressBar.layoutParams = LinearLayout.LayoutParams(
@@ -86,10 +95,16 @@ class PruebaNivel : AppCompatActivity() {
         progressBar.progress = indicePreguntaActual * (100/preguntas.size)
         preguntasLayout.addView(progressBar)
 
+        val enunciado = TextView(this)
+        enunciado.text = pregunta.enunciado
+        enunciado.textSize = 18f
+
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
+        preguntasLayout.addView(enunciado)
         preguntasLayout.addView(preguntaTextView)
+
 
         pregunta.opciones.forEach { opcion ->
             val botonOpcion = Button(this)
@@ -112,13 +127,14 @@ class PruebaNivel : AppCompatActivity() {
         progressBar.progress = indicePreguntaActual * (100/preguntas.size)
         preguntasLayout.addView(progressBar)
 
-        val preguntaTextView = TextView(this)
-        preguntaTextView.text = pregunta.pregunta
-        preguntaTextView.textSize = 18f
-        preguntasLayout.addView(preguntaTextView)
+
+        val enunciadoTextView = TextView(this)
+        enunciadoTextView.text = pregunta.enunciado
+        enunciadoTextView.textSize = 18f
+        preguntasLayout.addView(enunciadoTextView)
 
         val fraseTextView = TextView(this)
-        fraseTextView.text = pregunta.fraseIncompleta.replace("_", "_____")
+        fraseTextView.text = pregunta.pregunta
         preguntasLayout.addView(fraseTextView)
 
         val respuestaEditText = EditText(this)
@@ -145,10 +161,14 @@ class PruebaNivel : AppCompatActivity() {
         progressBar.progress = indicePreguntaActual * (100/preguntas.size)
         preguntasLayout.addView(progressBar)
 
+        val enunciado = TextView(this)
+        enunciado.text = pregunta.enunciado
+        enunciado.textSize = 18f
 
         val preguntaTextView = TextView(this)
         preguntaTextView.text = pregunta.pregunta
         preguntaTextView.textSize = 18f
+        preguntasLayout.addView(enunciado)
         preguntasLayout.addView(preguntaTextView)
 
         respuestaEditText = EditText(this)
@@ -213,6 +233,7 @@ class PruebaNivel : AppCompatActivity() {
         }
         preguntasLayout.addView(botonVerificar)
     }
+
 
     private fun mostrarFelicitacion() {
         desbloquearSiguienteNivel()

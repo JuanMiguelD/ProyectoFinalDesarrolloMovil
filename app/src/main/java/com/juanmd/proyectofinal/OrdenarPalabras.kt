@@ -1,12 +1,13 @@
 package com.juanmd.proyectofinal
 
 class OrdenarPalabras(
+    override var enunciado: String,
     override var pregunta: String,
     val palabrasDesordenadas: List<String>,
-    val respuestaCorrecta: String
-) : Ejercicio(pregunta) {
+    override val respuesta: String
+) : Ejercicio(enunciado,pregunta,respuesta) {
 
     override fun verificarRespuesta(respuesta: String): Boolean {
-        return respuesta.equals(respuestaCorrecta, ignoreCase = true)
+        return this.respuesta.equals(respuesta, ignoreCase = true)
     }
 }
