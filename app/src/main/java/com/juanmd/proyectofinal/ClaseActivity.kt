@@ -12,6 +12,8 @@ import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.Gravity
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.MediaController
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
@@ -21,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class ClaseActivity : AppCompatActivity() {
 
-    private lateinit var videoView: VideoView
+    private lateinit var webView: WebView
     private lateinit var botonSiguiente: Button
     private lateinit var mediaController: MediaController
     private lateinit var preguntasLayout: LinearLayout
@@ -43,21 +45,28 @@ class ClaseActivity : AppCompatActivity() {
             return
         }
 
-        videoView = findViewById(R.id.videoView)
+        webView = findViewById(R.id.videoView)
         botonSiguiente = findViewById(R.id.boton_siguiente)
         preguntasLayout = findViewById(R.id.preguntas_layout)
 
-        mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
 
-        val videoUri = Uri.parse(tema.videoUrl)
-        videoView.setMediaController(mediaController)
-        videoView.setVideoURI(videoUri)
 
-        // Mostrar el botón al finalizar el video
-        videoView.setOnCompletionListener {
-            botonSiguiente.visibility = View.VISIBLE
+        val videoId = tema.videoUrl.substringAfterLast("v=") // Extrae el ID del video de YouTube
+        val videoHtml = """
+            <iframe width="100%" height="100%"
+            src="https://www.youtube.com/embed/$videoId"
+            frameborder="0" allowfullscreen></iframe>
+        """
+        webView.settings.javaScriptEnabled = true
+        webView.loadData(videoHtml, "text/html", "utf-8")
+
+        // Mostrar el botón al finalizar la carga de la página (opcional)
+        webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                botonSiguiente.visibility = View.VISIBLE
+            }
         }
+
 
         // Al hacer clic en el botón, mostrar preguntas
         botonSiguiente.setOnClickListener {
@@ -65,7 +74,7 @@ class ClaseActivity : AppCompatActivity() {
             mostrarPregunta()
         }
 
-        videoView.start()
+
     }
 
     private fun mostrarPregunta() {
@@ -100,7 +109,7 @@ class ClaseActivity : AppCompatActivity() {
                 Toast.makeText(this, "No te preocupes, revisemos el video de nuevo ;)", Toast.LENGTH_SHORT).show()
                 indicePreguntaActual = 0
                 preguntasLayout.visibility = View.GONE
-                videoView.start()
+
             }
 
         }

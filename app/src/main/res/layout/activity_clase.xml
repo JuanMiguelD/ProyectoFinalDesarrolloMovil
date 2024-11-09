@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:ignore="ExtraText">
 
-    <VideoView
+    <WebView
         android:id="@+id/videoView"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
+        android:layout_width="351dp"
+        android:layout_height="364dp"
         android:layout_marginTop="50dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 

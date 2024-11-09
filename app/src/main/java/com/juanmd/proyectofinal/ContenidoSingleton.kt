@@ -8,7 +8,7 @@ object ContenidoSingleton {
 
     private fun crearNiveles(): List<Nivel> {
 
-        val temaA1M1_1 = Tema("Formal and informal greetings", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA1M1_1 = Tema("Formal and informal greetings", "https://www.youtube.com/watch?v=ti5pLWVwFBU", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
