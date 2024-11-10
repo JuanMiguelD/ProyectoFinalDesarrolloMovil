@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.Gravity
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
@@ -25,7 +26,7 @@ class ClaseActivity : AppCompatActivity() {
 
     private lateinit var webView: WebView
     private lateinit var botonSiguiente: Button
-    private lateinit var mediaController: MediaController
+    private lateinit var image: ImageView
     private lateinit var preguntasLayout: LinearLayout
     private lateinit var tema: Tema
     private var vidas:Int = 3
@@ -48,17 +49,29 @@ class ClaseActivity : AppCompatActivity() {
         webView = findViewById(R.id.videoView)
         botonSiguiente = findViewById(R.id.boton_siguiente)
         preguntasLayout = findViewById(R.id.preguntas_layout)
+        image = findViewById(R.id.imagen)
 
 
+        val url = tema.videoUrl // Extrae el ID del video de YouTube
 
-        val videoId = tema.videoUrl.substringAfterLast("v=") // Extrae el ID del video de YouTube
-        val videoHtml = """
-            <iframe width="100%" height="100%"
-            src="https://www.youtube.com/embed/$videoId"
-            frameborder="0" allowfullscreen></iframe>
-        """
-        webView.settings.javaScriptEnabled = true
-        webView.loadData(videoHtml, "text/html", "utf-8")
+        if (url.contains("youtube.com") || url.contains("youtu.be")) {
+            // Cargar video de YouTube
+            val videoId = url.substringAfterLast("v=")
+            val videoHtml = """
+                <iframe width="100%" height="100%"
+                src="https://www.youtube.com/embed/$videoId"
+                frameborder="0" allowfullscreen></iframe>
+            """
+            webView.settings.javaScriptEnabled = true
+            webView.loadData(videoHtml, "text/html", "utf-8")
+            webView.visibility = View.VISIBLE
+
+        } else {
+            image.visibility = View.VISIBLE
+            val resId = resources.getIdentifier(url, "drawable", packageName)
+            image.setImageResource(resId)
+        }
+
 
         // Mostrar el botón al finalizar la carga de la página (opcional)
         webView.webViewClient = object : WebViewClient() {

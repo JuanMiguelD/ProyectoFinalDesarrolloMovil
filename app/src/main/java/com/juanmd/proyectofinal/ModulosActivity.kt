@@ -82,7 +82,7 @@ class ModulosActivity : AppCompatActivity() {
                 .addOnSuccessListener { snapshot ->
                     val moduloActual = snapshot.getValue(Int::class.java) ?: 1
 
-                    niveltest.isEnabled = (moduloActual == 6)
+                    niveltest.isEnabled = (moduloActual == 5)
 
                 }
                 .addOnFailureListener { e ->

@@ -1,31 +1,44 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ExtraText">
+    tools:ignore="ExtraText"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="351dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:visibility="gone"/>
 
     <WebView
         android:id="@+id/videoView"
         android:layout_width="351dp"
         android:layout_height="364dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:visibility="gone"
+        />
 
     <Button
         android:id="@+id/boton_siguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:text="Siguiente"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
+        android:text="Siguiente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videoView"
-        tools:ignore="MissingConstraints"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toBottomOf="@id/imagen"
+
+
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/preguntas_layout"
@@ -41,4 +54,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
