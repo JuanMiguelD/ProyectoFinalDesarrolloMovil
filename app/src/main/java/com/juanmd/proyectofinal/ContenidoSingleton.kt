@@ -137,7 +137,7 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M1_2 = Tema("Times of the day", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M1_2 = Tema("Times of the day", "a2m1t2", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -145,28 +145,28 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M1_3 = Tema("Frequency", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M1_3 = Tema("Frequency", "a2m1t3", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
 
-        val temaA2M1_4 = Tema("Common action verbs", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M1_4 = Tema("Common action verbs", "a2m1t4", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
 
-        val temaA2M2_1 = Tema("Sports and recreational activities", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M2_1 = Tema("Sports and recreational activities", "a2m2t1", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
 
-        val temaA2M2_2 = Tema("Expressing likes and dislikes", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M2_2 = Tema("Expressing likes and dislikes", "a2m2t2", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -174,21 +174,22 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M2_3 = Tema("Inviting and responding to invitations", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M2_3 = Tema("Inviting and responding to invitations", "a2m2t3", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
-        val temaA2M2_4 = Tema("Weekend plans", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M2_4 = Tema("Weekend plans", "a2m2t4", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
             ))
-        val temaA2M3_1 = Tema("Means of transport", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+
+        val temaA2M3_1 = Tema("Types of shops", "a2m3t1", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -196,7 +197,7 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M3_2 = Tema("Giving and asking for simple directions", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M3_2 = Tema("Clothing items and accessories", "a2m3t2", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -204,21 +205,7 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M3_3 = Tema("Places in the city", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
-        val temaA2M3_4 = Tema("Prepositions of place", "https://www.youtube.com/watch?v=ZgVETqeSJAY", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
-        val temaA2M4_1 = Tema("Types of shops", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M3_3 = Tema("Prices and currencies", "a2m3t3", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -226,7 +213,14 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M4_2 = Tema("Clothing items and accessories", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M3_4 = Tema("Simple buying and selling dialogues", "a2m3t4", listOf(
+            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
+            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
+            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
+            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
+            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+        ))
+        val temaA2M4_1 = Tema("Weather vocabulary", "", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -234,21 +228,7 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M4_3 = Tema("Prices and currencies", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
-        val temaA2M4_4 = Tema("Simple buying and selling dialogues", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
-        val temaA2M5_1 = Tema("Weather vocabulary", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M4_2 = Tema("Seasons of the year", "", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -256,7 +236,7 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M5_2 = Tema("Seasons of the year", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M4_3 = Tema("Seasonal activities", "", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
@@ -264,19 +244,14 @@ object ContenidoSingleton {
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
 
-        val temaA2M5_3 = Tema("Seasonal activities", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
-        val temaA2M5_4 = Tema("Clothing according to weather", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
+        val temaA2M4_4 = Tema("Clothing according to weather", "", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
             OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
         ))
+
         //temas B1
         val temaB1M1_1 = Tema("Names of professions", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
@@ -308,36 +283,7 @@ object ContenidoSingleton {
             OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
             OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
 
-        val temaB1M2_1 = Tema("Types of accommodation", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
 
-        val temaB1M2_2 = Tema("Booking flights and hotels", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
-
-        val temaB1M2_3 = Tema("Tourist activities", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
-        val temaB1M2_4 = Tema("Travel experiences", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-        ))
         val temaB1M3_1 = Tema("Parts of the body", "https://cdn.pixabay.com/video/2023/11/28/191159-889246512_tiny.mp4", listOf(
             OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
             CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
@@ -868,8 +814,8 @@ object ContenidoSingleton {
 
         val modulo1A2 = Modulo("Daily routines", listOf(temaA2M1_1, temaA2M1_2, temaA2M1_3, temaA2M1_4))
         val modulo2A2 = Modulo("Hobbies and free time", listOf(temaA2M2_1, temaA2M2_2, temaA2M2_3,temaA2M2_4))
-        val modulo4A2 = Modulo("Basic shopping", listOf(temaA2M4_1, temaA2M4_2, temaA2M4_3,temaA2M4_4))
-        val modulo5A2 = Modulo("Weather and seasons", listOf(temaA2M5_1, temaA2M5_2, temaA2M5_3,temaA2M5_4))
+        val modulo4A2 = Modulo("Basic shopping", listOf(temaA2M3_1, temaA2M3_2, temaA2M3_3,temaA2M3_4))
+        val modulo5A2 = Modulo("Weather and seasons", listOf(temaA2M4_1, temaA2M4_2, temaA2M4_3,temaA2M4_4))
 
         val modulo1B1 = Modulo("Work and professions", listOf(temaB1M1_1, temaB1M1_2, temaB1M1_3, temaB1M1_4))
         val modulo3B1 = Modulo("Health and well-being", listOf(temaB1M3_1, temaB1M3_2, temaB1M3_3,temaB1M3_4))
