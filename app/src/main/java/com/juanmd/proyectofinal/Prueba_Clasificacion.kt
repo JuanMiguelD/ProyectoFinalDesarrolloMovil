@@ -281,12 +281,8 @@ class Prueba_Clasificacion : AppCompatActivity() {
         // Recorre los niveles hasta el actual y desbloquea cada uno
         for (i in 0..indexActual) {
             val nivel = niveles[i]
+            databaseRef.child(nivel).child("ModuloActual").setValue(4)
             databaseRef.child(nivel).child("Disponible").setValue(true)
-                .addOnSuccessListener {
-                    if (i == indexActual) { // Solo muestra el mensaje una vez cuando termina el bucle
-                        Toast.makeText(this, "Nivel $nivelActual y niveles anteriores desbloqueados!", Toast.LENGTH_SHORT).show()
-                    }
-                }
                 .addOnFailureListener { exception ->
                     Toast.makeText(this, "Error al desbloquear el nivel $nivel: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }

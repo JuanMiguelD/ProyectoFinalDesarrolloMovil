@@ -13,7 +13,7 @@ object ContenidoSingleton {
             OrdenarPalabras(
                 "Arrange the words to make a sentence using a formal greeting.",
                 "",
-                listOf("to", "pleasure", "meet", "you", "It's"),
+                listOf("to", "pleasure", "a", "meet", "you", "It's"),
                 "It's a pleasure to meet you"
             ),
 
@@ -46,8 +46,8 @@ object ContenidoSingleton {
             OrdenarPalabras(
                 "Arrange the words to form a sentence with an informal greeting.",
                 "",
-                listOf("What's", "everyone", "up,", "Hey"),
-                "Hey, what's up, everyone"
+                listOf("What's", "everyone", "up", "Hey"),
+                "Hey what's up everyone"
             ),
 
             CompletarFrase(
@@ -67,7 +67,7 @@ object ContenidoSingleton {
                 "Arrange the words to make an informal greeting.",
                 "",
                 listOf("up", "What's", "buddy", "?"),
-                "What's up buddy?"
+                "What's up buddy ?"
             ),
 
             CompletarFrase(
@@ -1228,126 +1228,604 @@ object ContenidoSingleton {
 
         // temas A2
         val temaA2M1_1 = Tema("Everyday activities", "https://www.youtube.com/watch?v=9wCqcdTwcco", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "Every day, I _____ to school by bus.",
+                "go"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an everyday activity.",
+                "",
+                listOf("morning", "in", "I", "run", "the"),
+                "I run in the morning"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We usually eat dinner in the morning.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Voy al trabajo en coche.",
+                "I go to work by car."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an everyday activity.",
+                "",
+                listOf("cook", "I", "dinner", "every", "night"),
+                "I cook dinner every night"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence",
+                "I usually _____ a shower in the morning.",
+                "take"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which activity do you do before going to bed?",
+                listOf("Brush your teeth", "Eat lunch", "Go to work"),
+                "Brush your teeth"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "People usually wake up at night.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence",
+                "She _____ to music every afternoon.",
+                "listens"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these activities do you do at night?",
+                listOf("Eat breakfast", "Go to sleep", "Go to work"),
+                "Go to sleep"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We usually eat breakfast in the evening.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Me levanto temprano todos los días.",
+                "I wake up early every day."
+            )
+
         ))
 
         val temaA2M1_2 = Tema("Times of the day", "a2m1t2", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
+            CompletarFrase(
+                "Complete the sentence",
+                "We usually go to bed at _____.",
+                "night"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct time of day.",
+                "I always have breakfast in the _____.",
+                "morning"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What do you usually do in the evening?",
+                listOf("Sleep", "Work", "Wake up"),
+                "Work"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about times of the day.",
+                "",
+                listOf("afternoon", "I", "study", "in", "the"),
+                "I study in the afternoon"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which time of day is it when you wake up?",
+                listOf("Morning", "Night", "Evening"),
+                "Morning"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We sleep in the morning.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Ella trabaja por la tarde.",
+                "She works in the afternoon."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about times of the day.",
+                "",
+                listOf("in", "I", "study", "the", "afternoon"),
+                "I study in the afternoon"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What do you usually do at night?",
+                listOf("Eat breakfast", "Go to sleep", "Go to work"),
+                "Go to sleep"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Me gusta tomar café por la mañana.",
+                "I like to drink coffee in the morning."
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "You wake up in the evening.",
+                listOf("True", "False"),
+                "False"
+            )
+
         ))
 
         val temaA2M1_3 = Tema("Frequency", "a2m1t3", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "How often do you go to the gym?",
+                listOf("At night", "In the morning", "Every day"),
+                "Every day"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct frequency word.",
+                "I _____ eat pizza. Maybe once a month.",
+                "rarely"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about frequency.",
+                "",
+                listOf("I", "once", "week", "go", "a"),
+                "I go once a week"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "You can say 'I go never to the park' in English.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about frequency.",
+                "",
+                listOf("often", "I", "go", "to", "the", "movies"),
+                "I often go to the movies"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which word means 'not often'?",
+                listOf("Sometimes", "Always", "Never"),
+                "Never"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We use 'never' to talk about things we do sometimes.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about frequency.",
+                "",
+                listOf("wake", "never", "early", "I", "up"),
+                "I never wake up early"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "How often do you watch TV?",
+                listOf("Never", "On Sunday", "At night"),
+                "Never"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We say 'always' when something happens rarely.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+
+        ))
 
         val temaA2M1_4 = Tema("Common action verbs", "a2m1t4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an action.",
+                "",
+                listOf("eat", "I", "apple", "an"),
+                "I eat an apple"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "I _____ my homework in the evening.",
+                "do"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which of these is something you do with a book?",
+                listOf("Read", "run", "Sing"),
+                "Read"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We use the verb 'watch' to talk about looking at something carefully.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Él corre en el parque todos los días.",
+                "He runs in the park every day."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an action.",
+                "",
+                listOf("I", "eat", "breakfast", "every", "morning"),
+                "I eat breakfast every morning"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "She _____ to music in the evening.",
+                "listens"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which verb do you use when you want to make a phone call?",
+                listOf("Talk", "Call", "Write"),
+                "Call"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We use the verb 'cook' to make food.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Nosotros jugamos fútbol los fines de semana.",
+                "We play football on weekends."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an action.",
+                "",
+                listOf("he", "wakes", "up", "early"),
+                "He wakes up early"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "They _____ to school by bus every day.",
+                "go"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "We use the verb 'swim' when we are flying.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Yo estudio inglés todos los días.",
+                "I study English every day."
+            )
+
+        ))
 
         val temaA2M2_1 = Tema("Sports and recreational activities", "a2m2t1", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")        ))
+
+            CompletarFrase(
+                "Complete the sentence with the correct sport.",
+                "He likes to _____ in the lake.",
+                "swim"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about sports.",
+                "",
+                listOf("on", "Sundays", "play", "I", "football"),
+                "I play football on Sundays"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which sport do you play with a ball and a racket?",
+                listOf("Football", "Tennis", "Swimming"),
+                "Tennis"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an activity.",
+                "",
+                listOf("ride", "bike", "I", "park", "in", "the","my"),
+                "I ride my bike in the park"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which activity involves running and jumping?",
+                listOf("Cycling", "Athletics", "Swimming"),
+                "Athletics"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "You need a racket to play football.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "A mí me gusta bailar salsa.",
+                "I like to dance salsa."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an activity.",
+                "",
+                listOf("play", "I", "football", "often"),
+                "I often play football"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "They _____ in the pool every Saturday.",
+                "swim"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these activities does not use a ball?",
+                listOf("Football", "Swimming", "Basketball"),
+                "Swimming"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "You can play tennis on a water surface.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Ella juega al tenis con sus amigos.",
+                "She plays tennis with her friends."
+            )
+        ))
 
         val temaA2M2_2 = Tema("Expressing likes and dislikes", "a2m2t2", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about likes.",
+                "",
+                listOf("I", "chocolate", "like"),
+                "I like chocolate"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "'I enjoy' means the same as 'I dislike'.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Me gusta bailar.",
+                "I like to dance."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about dislikes.",
+                "",
+                listOf("don’t", "fish", "I", "like"),
+                "I don’t like fish"
+            ),
+
+            OpcionMultiple(
+                "Complete the sentence with the correct expression.",
+                "She _____ eating vegetables.",
+                listOf("dislikes", "don't like"),
+                "dislikes"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these means 'I enjoy'?",
+                listOf("I don’t like", "I like", "I dislike"),
+                "I like"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "The phrase 'I dislike' means the same as 'I don’t like'.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about likes.",
+                "",
+                listOf("love", "playing", "I", "chess"),
+                "I love playing chess"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these expresses a dislike?",
+                listOf("I enjoy", "I like", "I hate"),
+                "I hate"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "You can say 'I love' when you like something very much.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "A ella le gusta leer libros.",
+                "She likes to read books."
+            )
+
         ))
 
         val temaA2M2_3 = Tema("Inviting and responding to invitations", "a2m2t3", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
+            CompletarFrase(
+                "Complete the informal invitation",
+                "Do you ______ to grab a coffee later?",
+                "want"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "It's acceptable to not give a reason when declining an invitation.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct response.",
+                "I can’t come to your party because I _____ work.",
+                "have to"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a formal invitation.",
+                "",
+                listOf("like", "would", "dinner", "to", "you", "I", "invite", "to"),
+                "I would like to invite you to dinner"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence inviting someone.",
+                "",
+                listOf("you", "to", "coffee", "have", "want", "would", "some"),
+                "Would you like to have some coffee?"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct response.",
+                "That sounds great! I _____ love to go.",
+                "would"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What would you say to invite someone to dinner?",
+                listOf("Come to my house.", "Would you like to join me for dinner?", "I don’t want to eat."),
+                "Would you like to join me for dinner?"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a response to an invitation.",
+                "",
+                listOf("to","I'd","come","love"),
+                "I'd love to come"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which of these is a way to invite someone?",
+                listOf("I like", "Would you like", "I don’t care"),
+                "Would you like"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct phrase.",
+                "___ ____ _____ to my party this Saturday?",
+                "Do you want to come"
+            ),
+
         ))
+
         val temaA2M2_4 = Tema("Weekend plans", "a2m2t4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
-            ))
+
+        ))
 
         val temaA2M3_1 = Tema("Types of shops", "a2m3t1", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
 
         val temaA2M3_2 = Tema("Clothing items and accessories", "a2m3t2", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
 
         val temaA2M3_3 = Tema("Prices and currencies", "a2m3t3", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
 
         val temaA2M3_4 = Tema("Simple buying and selling dialogues", "a2m3t4", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
         val temaA2M4_1 = Tema("Weather vocabulary", "", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
 
         val temaA2M4_2 = Tema("Seasons of the year", "", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
+
         ))
 
         val temaA2M4_3 = Tema("Seasonal activities", "", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
 
         val temaA2M4_4 = Tema("Clothing according to weather", "", listOf(
-            OpcionMultiple("Select the correct choice","What is the correct way to ask someone's name?", listOf("You call how?", "What is your name?", "You name is?", "How you name?"), "What is your name?"),
-            CompletarFrase("Complete the Sentence", "I ______ from Canada.", "am"),
-            OpcionMultiple("True or False","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OpcionMultiple("Select the correct choice","The word \"apple\" starts with a consonant.", listOf("True", "False"), "False"),
-            OrdenarPalabras(" Arrange the words to form a correct sentence:","",listOf("is", "the", "red", "apple"), "the apple is red")
+
         ))
 
         //temas B1

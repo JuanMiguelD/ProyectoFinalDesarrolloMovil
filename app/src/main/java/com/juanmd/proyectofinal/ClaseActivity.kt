@@ -52,26 +52,7 @@ class ClaseActivity : AppCompatActivity() {
         image = findViewById(R.id.imagen)
 
 
-        val url = tema.videoUrl // Extrae el ID del video de YouTube
-
-        if (url.contains("youtube.com") || url.contains("youtu.be")) {
-            // Cargar video de YouTube
-            val videoId = url.substringAfterLast("v=")
-            val videoHtml = """
-                <iframe width="100%" height="100%"
-                src="https://www.youtube.com/embed/$videoId"
-                frameborder="0" allowfullscreen></iframe>
-            """
-            webView.settings.javaScriptEnabled = true
-            webView.loadData(videoHtml, "text/html", "utf-8")
-            webView.visibility = View.VISIBLE
-
-        } else {
-            image.visibility = View.VISIBLE
-            val resId = resources.getIdentifier(url, "drawable", packageName)
-            image.setImageResource(resId)
-        }
-
+        mostrarcontenido()
 
         // Mostrar el botón al finalizar la carga de la página (opcional)
         webView.webViewClient = object : WebViewClient() {
@@ -83,6 +64,8 @@ class ClaseActivity : AppCompatActivity() {
 
         // Al hacer clic en el botón, mostrar preguntas
         botonSiguiente.setOnClickListener {
+            image.visibility = View.GONE
+            webView.visibility = View.GONE
             botonSiguiente.visibility = View.GONE
             mostrarPregunta()
         }
@@ -115,16 +98,49 @@ class ClaseActivity : AppCompatActivity() {
             } else {
                 mostrarFelicitacion()
             }
-        } else {
-            Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
-            vidas -= 1
-            if (vidas == 0){
-                Toast.makeText(this, "No te preocupes, revisemos el video de nuevo ;)", Toast.LENGTH_SHORT).show()
-                indicePreguntaActual = 0
-                preguntasLayout.visibility = View.GONE
 
+        } else {
+            val respuestaCorrecta =  pregunta.respuesta
+            Toast.makeText(this, "Incorrecto, la respuesta correcta era $respuestaCorrecta: ", Toast.LENGTH_SHORT).show()
+            vidas -= 1
+            indicePreguntaActual++
+            if (indicePreguntaActual < tema.ejercicios.size) {
+                mostrarPregunta()
+            } else {
+                mostrarFelicitacion()
             }
 
+            if (vidas == 0){
+                Toast.makeText(this, "No te preocupes, revisemos el contenido de nuevo ;)", Toast.LENGTH_SHORT).show()
+                indicePreguntaActual = 0
+                preguntasLayout.visibility = View.GONE
+                mostrarcontenido()
+                botonSiguiente.visibility = View.VISIBLE
+            }
+        }
+
+    }
+
+    private fun mostrarcontenido(){
+
+        val url = tema.videoUrl // Extrae el ID del video de YouTube
+
+        if (url.contains("youtube.com") || url.contains("youtu.be")) {
+            // Cargar video de YouTube
+            val videoId = url.substringAfterLast("v=")
+            val videoHtml = """
+                <iframe width="100%" height="100%"
+                src="https://www.youtube.com/embed/$videoId"
+                frameborder="0" allowfullscreen></iframe>
+            """
+            webView.settings.javaScriptEnabled = true
+            webView.loadData(videoHtml, "text/html", "utf-8")
+            webView.visibility = View.VISIBLE
+
+        } else {
+            image.visibility = View.VISIBLE
+            val resId = resources.getIdentifier(url, "drawable", packageName)
+            image.setImageResource(resId)
         }
 
 
@@ -315,8 +331,6 @@ class ClaseActivity : AppCompatActivity() {
                 }
         }
     }
-
-
 
 
 }
