@@ -3181,7 +3181,7 @@ object ContenidoSingleton {
 
         ))
 
-        val temaB1M4_3 = Tema("Comparing cultures", "", listOf(
+        val temaB1M4_3 = Tema("Comparing cultures", "b1m4t3", listOf(
 
             OrdenarPalabras(
                 "Arrange the words to make a sentence comparing cultures.",
@@ -3254,7 +3254,7 @@ object ContenidoSingleton {
 
         ))
 
-        val temaB1M4_4 = Tema("Basic social etiquette", "", listOf(
+        val temaB1M4_4 = Tema("Basic social etiquette", "b1m4t4", listOf(
 
             CompletarFrase(
                 "Complete the sentence with the correct etiquette advice.",
