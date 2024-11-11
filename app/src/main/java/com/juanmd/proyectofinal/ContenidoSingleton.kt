@@ -2175,75 +2175,1153 @@ object ContenidoSingleton {
         ))
 
         //temas B1
-        val temaB1M1_1 = Tema("Names of professions", "", listOf(
+        val temaB1M1_1 = Tema("Names of professions", "b1m1t1", listOf(
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a profession.",
+                "",
+                listOf("a", "doctor", "is", "She"),
+                "She is a doctor"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Who teaches students in a school?",
+                listOf("Engineer", "Teacher", "Chef"),
+                "Teacher"
+            ),
+
+
+            CompletarFrase(
+                "Translate:",
+                "Mi padre es un abogado.",
+                "My father is a lawyer."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to describe a profession.",
+                "",
+                listOf("an", "engineer", "is", "He"),
+                "He is an engineer"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct word.",
+                "A person who takes care of sick animals is a _____.",
+                "veterinarian"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these professions works with computers?",
+                listOf("Artist", "Chef", "Programmer"),
+                "Programmer"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "A pilot flies airplanes.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+
+            CompletarFrase(
+                "Complete the sentence with the correct job title.",
+                "The person who serves food at a restaurant is a _____.",
+                "waiter"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which job involves designing buildings?",
+                listOf("Architect", "Doctor", "Lawyer"),
+                "Architect"
+            ),
+
+
+            CompletarFrase(
+                "Translate:",
+                "Mi hermana es una dentista.",
+                "My sister is a dentist."
+            )
+
 
 
         ))
 
-        val temaB1M1_2 = Tema("Skills and qualifications", "", listOf(
+        val temaB1M1_2 = Tema("Skills and qualifications", "b1m1t2", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a skill.",
+                "",
+                listOf("She", "speak", "three", "languages", "can"),
+                "She can speak three languages"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct skill.",
+                "To be a good chef, you need to know how to _____.",
+                "cook"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What skill is important for a writer?",
+                listOf("Driving", "Writing", "Singing"),
+                "Writing"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "A qualification is a certificate or degree someone has earned.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Ella tiene un título en ingeniería",
+                "She has a degree in engineering"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to describe a qualification.",
+                "",
+                listOf("He", "certificate", "received", "a", "training"),
+                "He received a training certificate"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these is a qualification?",
+                listOf("A bicycle", "A diploma", "A phone"),
+                "A diploma"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about skills.",
+                "",
+                listOf("important", "is", "teamwork", "for", "projects"),
+                "Teamwork is important for projects"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the appropriate qualification.",
+                "She earned a _____ in business management.",
+                "degree"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Él tiene experiencia en ventas y marketing.",
+                "He has experience in sales and marketing."
+            )
+
+        ))
+
+        val temaB1M1_3 = Tema("Work routines", "b1m1t3", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a daily work routine.",
+                "",
+                listOf("starts", "at", "She", "8", "work", "am"),
+                "She starts work at 8 am"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct activity.",
+                "Every day, I _____ emails in the morning.",
+                "check"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What do most people do at the beginning of the workday?",
+                listOf("Go to bed", "Start their tasks", "Have dinner"),
+                "Start their tasks"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Él toma un descanso a las 10 de la mañana.",
+                "He takes a break at 10 in the morning."
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct action.",
+                "In the afternoon, she usually _____ reports.",
+                "writes"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Workers often take a break in the middle of their workday.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Después de trabajar, él se relaja en casa",
+                "After work, he relaxes at home"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an afternoon routine.",
+                "",
+                listOf("She", "at", "calls", "clients", "2", "pm"),
+                "She calls clients at 2 pm"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What do employees do during a break?",
+                listOf("Write reports", "Rest or have a snack", "Start work"),
+                "Rest or have a snack"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Ella revisa sus correos electrónicos todas las mañanas.",
+                "She checks her emails every morning."
+            )
+
+        ))
+
+        val temaB1M1_4 = Tema("Job searching", "b1m1t4", listOf(
+            OrdenarPalabras(
+                "Arrange the words to make a sentence related to job searching.",
+                "",
+                listOf("looking", "She", "for", "a", "is", "job"),
+                "She is looking for a job"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What do people often read when searching for a job?",
+                listOf("Magazines", "Job postings", "Novels"),
+                "Job postings"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "An interview is the first step in searching for a job.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to describe a job search activity.",
+                "",
+                listOf("job", "online", "for", "searching", "is", "a", "common"),
+                "Searching for a job online is common"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct word.",
+                "During an interview, it’s important to make a good _____.",
+                "impression"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Job seekers should tailor their resumes for each job.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Él está buscando un trabajo",
+                "He is looking for a job"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about job application.",
+                "",
+                listOf("apply", "I", "to", "want", "for", "this", "job"),
+                "I want to apply for this job"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct action.",
+                "She _____ job interviews every week.",
+                "attends"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What should you prepare before an interview?",
+                listOf("A gift", "Questions and answers", "A vacation plan"),
+                "Questions and answers"
+            ),
 
 
         ))
 
-        val temaB1M1_3 = Tema("Work routines", "", listOf(
+        val temaB1M2_1 = Tema("Parts of the body", "b1m2t1", listOf(
+
+            CompletarFrase(
+                "Complete the sentence with the correct body part.",
+                "You use your _____ to hear sounds.",
+                "ears"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which part of the body connects your head to your shoulders?",
+                listOf("Knee", "Neck", "Elbow"),
+                "Neck"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "The ankle is part of the arm.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about the body.",
+                "",
+                listOf("eyes", "two", "has", "everyone"),
+                "Everyone has two eyes"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the appropriate body part.",
+                "I use my _____ to run every morning.",
+                "legs"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What part of the body do you use to write?",
+                listOf("Hand", "Foot", "Back"),
+                "Hand"
+            ),
+
+
+            CompletarFrase(
+                "Complete the sentence with the correct word.",
+                "When I smile, you can see my _____.",
+                "teeth"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which body part is responsible for pumping blood?",
+                listOf("Heart", "Stomach", "Liver"),
+                "Heart"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Your elbow is part of your leg.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Mi hermana tiene los ojos verdes",
+                "My sister has green eyes"
+            )
+
+        ))
+
+        val temaB1M2_2 = Tema("Common illnesses and symptoms", "b1m2t2", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a common illness.",
+                "",
+                listOf("flu", "has", "She", "the", "week", "this"),
+                "She has the flu this week"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What symptom do you usually have with a fever?",
+                listOf("Cough", "High temperature", "Runny nose"),
+                "High temperature"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "A headache is pain in your stomach.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct illness.",
+                "He has a high temperature and feels weak; he might have _____.",
+                "fever"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What should you do if you have a persistent cough?",
+                listOf("Ignore it", "See a doctor", "Eat more sweets"),
+                "See a doctor"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Ella tiene un resfriado y está tosiendo mucho.",
+                "She has a cold and is coughing a lot."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about an illness.",
+                "",
+                listOf("feels", "He", "tired", "very", "lately"),
+                "He feels very tired lately"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct symptom.",
+                "If you have a runny nose, you might also _____.",
+                "sneeze"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What symptom is associated with a stomachache?",
+                listOf("Ear pain", "Abdominal pain", "Back pain"),
+                "Abdominal pain"
+            ),
+        ))
+
+        val temaB1M2_3 = Tema("Medical appointments", "b1m2t3", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a medical appointment.",
+                "",
+                listOf("doctor", "an", "appointment", "with", "I", "made"),
+                "I made an appointment with the doctor"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What should you do if you need to see a specialist?",
+                listOf("Make an appointment", "Wait at home", "Ignore it"),
+                "Make an appointment"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "You need an appointment to visit the emergency room.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Tengo una cita médica mañana a las 10 de la mañana",
+                "I have a medical appointment tomorrow at 10 am"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence related to medical visits.",
+                "",
+                listOf("at", "arrived", "clinic", "the", "She", "early"),
+                "She arrived at the clinic early"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the appropriate term.",
+                "During your appointment, the doctor will ask about your medical _____.",
+                "history"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct action.",
+                "Before going to the appointment, remember to ____ the necessary documents.",
+                "bring"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What should you do if you can't attend your scheduled appointment?",
+                listOf("Ignore it", "Cancel or reschedule it", "Arrive late"),
+                "Cancel or reschedule it"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Doctors never ask about previous illnesses during an appointment.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "¿Podría programar una cita para el próximo lunes, por favor?",
+                "Could I schedule an appointment for next Monday, please?"
+            )
+
 
 
         ))
-        val temaB1M1_4 = Tema("Job searching", "", listOf(
+
+        val temaB1M2_4 = Tema("Healthy habits", "b1m2t4", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a healthy habit.",
+                "",
+                listOf("drink", "eight", "day", "glasses", "water", "a", "of"),
+                "Drink eight glasses of water a day"
+            ),
+
+            OpcionMultiple(
+                "Complete the sentence with the correct habit.",
+                "It is important to _____ regularly to stay healthy.",
+                listOf("drink coffee", "exercise", "watch TV"),
+                "exercise"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which of the following is a healthy habit?",
+                listOf("Eating fast food every day", "Sleeping 7-8 hours per night", "Skipping meals"),
+                "Sleeping 7-8 hours per night"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Drinking plenty of water helps maintain good health.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Hacer ejercicio todos los días es bueno para la salud.",
+                "Exercising every day is good for your health."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about healthy eating.",
+                "",
+                listOf("fruits", "vegetables", "eat", "and", "regularly"),
+                "Eat fruits and vegetables regularly"
+            ),
+
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these habits can improve your mental health?",
+                listOf("Watching TV all night", "Going for a walk", "Eating sweets"),
+                "Going for a walk"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to create a sentence about sleep.",
+                "",
+                listOf("hours", "night", "sleep", "eight", "at", "least", "a"),
+                "Sleep at least eight hours a night"
+            ),
+
+
+            OpcionMultiple(
+                "True or False",
+                "Physical activity can help improve your mood.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Tomar descansos regulares durante el trabajo es beneficioso.",
+                "Taking regular breaks during work is beneficial."
+            )
+
+        ))
+
+        val temaB1M3_1 = Tema("Electronic devices", "b1m3t1", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about an electronic device.",
+                "",
+                listOf("use", "I", "to", "computer", "my", "work", "on"),
+                "I use my computer to work on"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which device is commonly used for making video calls?",
+                listOf("Refrigerator", "Laptop", "Microwave"),
+                "Laptop"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "A tablet is smaller than a smartphone.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about charging devices.",
+                "",
+                listOf("needs", "phone", "Your", "charging"),
+                "Your phone needs charging"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these is used to read e-books?",
+                listOf("Washing machine", "E-reader", "Toaster"),
+                "E-reader"
+            ),
+
+
+            CompletarFrase(
+                "Translate:",
+                "Voy a cargar mi portátil antes de la reunión.",
+                "I am going to charge my laptop before the meeting."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to create a sentence about using electronic devices.",
+                "",
+                listOf("the", "turned", "He", "radio", "on"),
+                "He turned on the radio"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct device.",
+                "I use my _____ to take high-quality photos.",
+                "camera"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What device is used to print documents?",
+                listOf("Printer", "Blender", "Tablet"),
+                "Printer"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Headphones are used to play music aloud in a room.",
+                listOf("True", "False"),
+                "False"
+            ),
 
 
         ))
 
+        val temaB1M3_2 = Tema("Internet and social media", "b1m3t2", listOf(
 
-        val temaB1M3_1 = Tema("Parts of the body", "", listOf(
+            OpcionMultiple(
+                "Select the correct answer",
+                "What do people usually post on Instagram?",
+                listOf("Photos", "Recipes", "Books"),
+                "Photos"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "¿Puedes enviar el enlace de la página web?",
+                "Can you send the link to the website?"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about social media.",
+                "",
+                listOf("to", "like", "You", "posts", "can", "Facebook"),
+                "You can like posts on Facebook"
+            ),
+
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these platforms is used for professional networking?",
+                listOf("Twitter", "LinkedIn", "Snapchat"),
+                "LinkedIn"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Instagram is mostly used for short messages and news updates.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Ella siempre revisa las redes sociales por la mañana.",
+                "She always checks social media in the morning."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about internet use.",
+                "",
+                listOf("searching", "I", "the", "internet", "for", "information", "am"),
+                "I am searching the internet for information"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What is a common use of Twitter?",
+                listOf("Sharing photos", "Sending messages", "Posting short updates"),
+                "Posting short updates"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "People use social media to stay connected with friends and share personal updates.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "¿Puedo encontrar este producto en línea?",
+                "Can I find this product online?"
+            )
 
 
         ))
 
-        val temaB1M3_2 = Tema("Parts of the body", "", listOf(
+        val temaB1M3_3 = Tema("Technology-related verbs", "b1m3t3", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence using a technology-related verb.",
+                "",
+                listOf("download", "I", "apps", "my", "on", "phone"),
+                "I download apps on my phone"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "You need to _____ your computer to install the updates.",
+                "restart"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which verb describes saving a copy of an email on your computer?",
+                listOf("Forward", "Download", "Delete"),
+                "Download"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "To 'stream' means to watch or listen to content directly from the internet.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence using a common technology verb.",
+                "",
+                listOf("software", "update", "must",  "the", "You", "regularly"),
+                "You must update the software regularly"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the appropriate verb.",
+                "To protect your data, always _____ your files.",
+                "backup"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What does 'browse' mean?",
+                listOf("To delete files", "To search the internet", "To turn off the computer"),
+                "To search the internet"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "Necesito escanear este documento y enviarlo por correo electrónico.",
+                "I need to scan this document and send it by email."
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct verb.",
+                "If you want to watch this video offline, you should _____ it first.",
+                "download"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "The verb 'mute' refers to lowering the volume completely.",
+                listOf("True", "False"),
+                "True"
+            ),
 
 
         ))
 
-        val temaB1M3_3 = Tema("Medical appointments", "", listOf(
+        val temaB1M3_4 = Tema("Simple technical problems", "b1m3t4", listOf(
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a common technical issue.",
+                "",
+                listOf("internet", "The", "working", "not", "is"),
+                "The internet is not working"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What should you do if your computer freezes?",
+                listOf("Restart it", "Turn off the lights", "Ignore it"),
+                "Restart it"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "A slow computer could be a result of too many open programs.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about troubleshooting.",
+                "",
+                listOf("router", "restart", "the", "Try"),
+                "Try restarting the router"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What does it mean if your device 'overheats'?",
+                listOf("It runs out of battery", "It becomes too hot", "It turns off automatically"),
+                "It becomes too hot"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "If a website doesn't load, refreshing the page might solve the problem.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+
+            CompletarFrase(
+                "Complete the sentence with the appropriate word.",
+                "If the battery is low, you need to _____ your phone.",
+                "charge"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What could you do if your software is not up to date?",
+                listOf("Ignore it", "Update it", "Delete it"),
+                "Update it"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Restarting a device is often a good first step to fix technical issues.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "El sistema operativo necesita ser actualizado.",
+                "The operating system needs to be updated."
+            )
+
+        ))
+
+        val temaB1M4_1 = Tema("Holidays and celebrations", "b1m4t1", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a holiday celebration.",
+                "",
+                listOf("celebrate", "We", "Christmas", "family", "with", "our"),
+                "We celebrate Christmas with our family"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct holiday.",
+                "Many people give and receive chocolates on _____.",
+                "Valentine's Day"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What holiday is known for costumes and trick-or-treating?",
+                listOf("Thanksgiving", "Easter", "Halloween"),
+                "Halloween"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Independence Day is often celebrated with fireworks and parades.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about holiday traditions.",
+                "",
+                listOf("decorations", "put", "People", "up", "during", "festive", "holidays"),
+                "People put up festive decorations during holidays"
+            ),
+
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What holiday is celebrated with egg hunts and special church services?",
+                listOf("Easter", "Halloween", "New Year's Eve"),
+                "Easter"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Valentine's Day is a holiday that celebrates friendship and love.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+
+            OrdenarPalabras(
+                "Arrange the words to create a sentence about holiday meals.",
+                "",
+                listOf("turkey", "We", "eat", "Thanksgiving", "on"),
+                "We eat turkey on Thanksgiving"
+            ),
+
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which holiday involves lighting candles on a menorah?",
+                listOf("Christmas", "Hanukkah", "Easter"),
+                "Hanukkah"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "In many countries, Mother's Day is celebrated by giving gifts to mothers.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+        ))
+
+        val temaB1M4_2 = Tema("Traditions from different countries", "b1m4t2", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence about a tradition.",
+                "",
+                listOf("celebrate", "Japan", "cherry", "the", "blossom", "in", "They"),
+                "They celebrate the cherry blossom in Japan"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct country.",
+                "In _____, people celebrate the Day of the Dead with altars and offerings.",
+                "Mexico"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which country is known for celebrating Diwali, the festival of lights?",
+                listOf("India", "Spain", "Brazil"),
+                "India"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "Oktoberfest is a traditional beer festival celebrated in Germany.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "El festival de las linternas en Tailandia es muy famoso.",
+                "The lantern festival in Thailand is very famous."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to form a sentence about a tradition.",
+                "",
+                listOf("New", "celebrate", "They", "Chinese", "Year"),
+                "They celebrate Chinese New Year"
+            ),
+
+
+            OpcionMultiple(
+                "True or False",
+                "In Brazil, Carnival is celebrated with parades, music, and dancing.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+
+            CompletarFrase(
+                "Complete the sentence with the correct festival.",
+                "The Running of the Bulls is a tradition that takes place in _____.",
+                "Spain"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which tradition involves people setting off fireworks during a major holiday?",
+                listOf("Oktoberfest", "Chinese New Year", "La Tomatina"),
+                "Chinese New Year"
+            ),
+
+            CompletarFrase(
+                "Translate:",
+                "El Año Nuevo Lunar es celebrado por muchas culturas asiáticas",
+                "The Lunar New Year is celebrated by many Asian cultures"
+            )
+
+        ))
+
+        val temaB1M4_3 = Tema("Comparing cultures", "", listOf(
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence comparing cultures.",
+                "",
+                listOf("food", "Italian", "Mexican", "different", "is", "from"),
+                "Italian food is different from Mexican food"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct comparison.",
+                "In Japan, bowing is more common than _____ for greeting.",
+                "handshaking"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "Which country has a culture that places a strong emphasis on tea ceremonies?",
+                listOf("Italy", "Japan", "Brazil"),
+                "Japan"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "In many Latin American countries, family gatherings are larger and more frequent than in some European countries.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to create a sentence comparing holidays.",
+                "",
+                listOf("Thanksgiving", "celebrated", "differently", "Christmas", "from", "is"),
+                "Thanksgiving is celebrated differently from Christmas"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which culture is known for valuing punctuality highly?",
+                listOf("Germany", "Spain", "Brazil"),
+                "Germany"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "In Spain, it is common to have dinner earlier than in most Northern European countries.",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a comparison about festivals.",
+                "",
+                listOf("colorful", "are", "festivals", "Brazilian", "very"),
+                "Brazilian festivals are very colorful"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with a comparative word.",
+                "Traditional French cuisine is often considered more sophisticated than ____  _____.",
+                "fast food"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "In which country is it customary to greet with a kiss on both cheeks?",
+                listOf("France", "Japan", "Germany"),
+                "France"
+            ),
 
 
         ))
-        val temaB1M3_4 = Tema("Healthy habits", "", listOf(
 
-        ))
-        val temaB1M4_1 = Tema("Electronic devices", "", listOf(
+        val temaB1M4_4 = Tema("Basic social etiquette", "", listOf(
+
+            CompletarFrase(
+                "Complete the sentence with the correct etiquette advice.",
+                "In many cultures, it is polite to ____ before entering someone's home.",
+                "knock"
+            ),
+
+            OpcionMultiple(
+                "Select the correct answer",
+                "What should you do when you meet someone for the first time?",
+                listOf("Ignore them", "Shake their hand", "Wave from afar"),
+                "Shake their hand"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "It is considered rude to talk loudly on your phone in a public place.",
+                listOf("True", "False"),
+                "True"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to create a sentence about greetings.",
+                "",
+                listOf("bow", "Japanese", "in", "people", "often"),
+                "Japanese people often bow"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct etiquette term.",
+                "In formal settings, addressing someone as '____' or 'Madam' shows respect.",
+                "Sir"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "What is considered impolite during a meal in many Western cultures?",
+                listOf("Talking with your mouth full", "Sitting in silence", "Asking for water"),
+                "Talking with your mouth full"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a polite reminder.",
+                "",
+                listOf("turn", "Please", "your", "phone", "off"),
+                "Please turn your phone off"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the correct word.",
+                "When receiving a gift, it is polite to ____ the person.",
+                "thank"
+            ),
+
+            OpcionMultiple(
+                "Select the correct option",
+                "Which of these is a polite way to excuse yourself from a conversation?",
+                listOf("Just walk away", "Say 'Excuse me, I must go'", "Ignore them"),
+                "Say 'Excuse me, I must go'"
+            ),
 
 
-        ))
-
-        val temaB1M4_2 = Tema("Internet and social media", "", listOf(
-
-        ))
-
-        val temaB1M4_3 = Tema("Technology-related verbs", "", listOf(
-
-        ))
-        val temaB1M4_4 = Tema("Simple technical problems", "", listOf(
-
-
-        ))
-        val temaB1M5_1 = Tema("Holidays and celebrations", "", listOf(
-
-
-        ))
-
-        val temaB1M5_2 = Tema("Traditions from different countries", "", listOf(
-
-
-        ))
-
-        val temaB1M5_3 = Tema("Comparing cultures", "", listOf(
-
-
-        ))
-        val temaB1M5_4 = Tema("Basic social etiquette", "", listOf(
-
+            CompletarFrase(
+                "Translate:",
+                "En muchas culturas, mostrar respeto a los mayores es fundamental.",
+                "In many cultures, showing respect to elders is essential."
+            )
 
         ))
 
@@ -2610,9 +3688,9 @@ object ContenidoSingleton {
         val modulo5A2 = Modulo("Weather and seasons", listOf(temaA2M4_1, temaA2M4_2, temaA2M4_3,temaA2M4_4))
 
         val modulo1B1 = Modulo("Work and professions", listOf(temaB1M1_1, temaB1M1_2, temaB1M1_3, temaB1M1_4))
-        val modulo3B1 = Modulo("Health and well-being", listOf(temaB1M3_1, temaB1M3_2, temaB1M3_3,temaB1M3_4))
-        val modulo4B1 = Modulo("Basic technology", listOf(temaB1M4_1, temaB1M4_2, temaB1M4_3,temaB1M4_4))
-        val modulo5B1 = Modulo("Culture and customs", listOf(temaB1M5_1, temaB1M5_2, temaB1M5_3,temaB1M5_4))
+        val modulo3B1 = Modulo("Health and well-being", listOf(temaB1M2_1, temaB1M2_2, temaB1M2_3,temaB1M2_4))
+        val modulo4B1 = Modulo("Basic technology", listOf(temaB1M3_1, temaB1M3_2, temaB1M3_3,temaB1M3_4))
+        val modulo5B1 = Modulo("Culture and customs", listOf(temaB1M4_1, temaB1M4_2, temaB1M4_3,temaB1M4_4))
 
         val modulo1B2 = Modulo("Environment and nature", listOf(temaB2M1_1, temaB2M1_2, temaB2M1_3, temaB2M1_4))
         val modulo2B2 = Modulo("Education and learning", listOf(temaB2M2_1, temaB2M2_2, temaB2M2_3,temaB2M2_4))
