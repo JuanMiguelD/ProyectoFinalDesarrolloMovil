@@ -127,6 +127,32 @@ object ContenidoSingleton {
             CompletarFrase(
                 "Complete the phrase for a casual introduction.",
                 "Hi, ____ is my brother, Alex.",
+                "He"
+            ),
+
+            OpcionMultiple(
+                "Select the best introduction phrase for a formal event.",
+                "Choose the correct option:",
+                listOf("Hey, this is John.", "I’d like to introduce myself, I'm John.", "Yo, I'm John."),
+                "I’d like to introduce myself, I'm John"
+            ),
+
+            OpcionMultiple(
+                "True or False",
+                "When introducing others, it is correct to say 'Please to meet you.'",
+                listOf("True", "False"),
+                "False"
+            ),
+
+            CompletarFrase(
+                "Fill the Blanks :",
+                "I _____ like to introduce myself. I am Ana.",
+                "would"
+            ),
+
+            CompletarFrase(
+                "Complete the phrase for a casual introduction.",
+                "Hi, ____ is my brother, Alex.",
                 "this"
             ),
 
@@ -149,6 +175,7 @@ object ContenidoSingleton {
                 "I _____ like to introduce myself. I am Ana.",
                 "would"
             )
+            
 
         ))
 
@@ -1793,6 +1820,7 @@ object ContenidoSingleton {
         ))
 
         val temaA2M2_4 = Tema("Weekend plans", "a2m2t4", listOf(
+
             OrdenarPalabras(
                 "Arrange the words to make a sentence about weekend plans.",
                 "",
@@ -1872,19 +1900,285 @@ object ContenidoSingleton {
 
         val temaA2M3_1 = Tema("Types of shops", "a2m3t1", listOf(
 
+            CompletarFrase(
+                "Complete the sentence with the type of shop.",
+                "You go to a ______ to buy bread and pastries.",
+                "bakery"
+            ),
+
+            OpcionMultiple(
+                "Choose the type of shop where you buy books.",
+                "Where would you go to buy novels and magazines?",
+                listOf("bookstore", "butcher's", "pharmacy"),
+                "bookstore"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence.",
+                "Arrange the words to name a shop.",
+                listOf("florist's", "the", "at", "flowers", "buy", "can", "You"),
+                "You can buy flowers at the florist's"
+            ),
+
+            CompletarFrase(
+                "Translate the shop name.",
+                "Zapatería",
+                "shoe store"
+            ),
+
+
+            CompletarFrase(
+                "Complete the sentence with the type of shop.",
+                "You go to a ____  ____ to buy toys.",
+                "toy store"
+            ),
+
+            OpcionMultiple(
+                "Select the correct shop for electronics.",
+                "Where can you buy a new phone or laptop?",
+                listOf("electronics store", "bakery", "florist's"),
+                "electronics store"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence.",
+                "Arrange the words to name a shop.",
+                listOf("the", "furniture", "at", "furniture", "store", "buy", "You"),
+                "You buy furniture at the furniture store"
+            ),
+
+            CompletarFrase(
+                "Translate the shop name.",
+                "Joyería",
+                "jewelry store"
+            ),
+
+            OpcionMultiple(
+                "Choose the correct type of shop.",
+                "Where would you go to buy a birthday card?",
+                listOf("stationery store", "butcher's", "electronics store"),
+                "stationery store"
+            ),
+
+            OpcionMultiple(
+                "Choose the correct shop for buying sports equipment.",
+                "Where would you buy a basketball or running shoes?",
+                listOf("sports store", "pharmacy", "bakery"),
+                "sports store"
+            )
+
         ))
+
 
         val temaA2M3_2 = Tema("Clothing items and accessories", "a2m3t2", listOf(
 
+            CompletarFrase(
+                "Complete the sentence with a clothing item.",
+                "A ______ is a type of jacket worn in cold weather.",
+                "coat"
+            ),
+
+            OpcionMultiple(
+                "Choose the accessory.",
+                "What do you use to carry your belongings?",
+                listOf("backpack", "sweater", "glasses"),
+                "backpack"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence.",
+                "Arrange the words to name an accessory.",
+                listOf("ring", "on", "a", "finger", "wear", "You", "your"),
+                "You wear a ring on your finger"
+            ),
+
+            CompletarFrase(
+                "Translate the clothing item.",
+                "Camisa",
+                "shirt"
+            ),
+
+            OpcionMultiple(
+                "Choose the clothing item.",
+                "What do you wear on your hands in winter to keep warm?",
+                listOf("gloves", "scarf", "belt"),
+                "gloves"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with a clothing item.",
+                "A ______ is a piece of clothing that covers your legs.",
+                "pants"
+            ),
+
+            OpcionMultiple(
+                "Choose the accessory.",
+                "What do you wear around your neck for warmth?",
+                listOf("scarf", "belt", "gloves"),
+                "scarf"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence.",
+                "Arrange the words to name an accessory.",
+                listOf("watch", "wear", "time", "wrist", "your", "check", "You", "to", "on"),
+                "You wear a watch on your wrist to check time"
+            ),
+
+            CompletarFrase(
+                "Translate the accessory.",
+                "Corbata",
+                "tie"
+            ),
+
+            OpcionMultiple(
+                "Choose the clothing item.",
+                "What do you wear to go swimming?",
+                listOf("swimsuit", "jacket", "boots"),
+                "swimsuit"
+            )
         ))
 
         val temaA2M3_3 = Tema("Prices and currencies", "a2m3t3", listOf(
+
+            OpcionMultiple(
+                "Choose the currency.",
+                "Which currency is used in the United Kingdom?",
+                listOf("pound", "dollar", "euro"),
+                "pound"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the currency symbol.",
+                "The symbol for the US dollar is ______.",
+                "$"
+            ),
+
+            OpcionMultiple(
+                "Select the correct price.",
+                "If an item costs $20 and you buy two, how much will it cost?",
+                listOf("$40", "$20", "$10"),
+                "$40"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence.",
+                "Arrange the words to form a question about price.",
+                listOf("cost", "does", "this", "How", "?"),
+                "How much does this cost?"
+            ),
+
+            CompletarFrase(
+                "Translate the currency.",
+                "Euro",
+                "euro"
+            ),
+
+            OpcionMultiple(
+                "Choose the correct currency.",
+                "What currency is used in China?",
+                listOf("yuan", "peso", "pound"),
+                "yuan"
+            ),
+
+            CompletarFrase(
+                "Complete the sentence with the currency name.",
+                "The currency used in Mexico is the ______.",
+                "peso"
+            ),
+
+            OpcionMultiple(
+                "Choose the correct currency.",
+                "Which currency symbol is used in European Union countries?",
+                listOf("€", "$", "£"),
+                "€"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a sentence.",
+                "Arrange the words to form a sentence about price.",
+                listOf("The", "item", "$50", "costs"),
+                "The item costs $50"
+            ),
+
+            CompletarFrase(
+                "Translate the sentence about price.",
+                "El precio es de 30 euros.",
+                "The price is 30 euros."
+            )
 
         ))
 
         val temaA2M3_4 = Tema("Simple buying and selling dialogues", "a2m3t4", listOf(
 
+            CompletarFrase(
+                "Translate the dialogue.",
+                "Cliente: ¿Cuánto cuesta este libro?\nVendedor: Cuesta 15 euros.",
+                "Customer: How much does this book cost?\nSeller: It costs 15 euros."
+            ),
+
+            OpcionMultiple(
+                "Choose the best response for a customer.",
+                "Seller: Can I help you?\nCustomer:",
+                listOf("Yes, I’m looking for a gift.", "Maybe, thank you.", "I don't know."),
+                "Yes, I’m looking for a gift."
+            ),
+
+            CompletarFrase(
+                "Complete the question for the seller.",
+                "Customer: ______ you have this item in a larger size?",
+                "Do"
+            ),
+
+            OpcionMultiple(
+                "Choose the appropriate dialogue ending.",
+                "Customer: I’ll take two, please.\nSeller:",
+                listOf("Thank you! That will be $10.", "You are welcome.", "What color?"),
+                "Thank you! That will be $10."
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a customer question.",
+                "Arrange the words for asking about available colors.",
+                listOf("Do", "this", "in", "have", "you", "color?", "another"),
+                "Do you have this in another color?"
+            ),
+
+            CompletarFrase(
+                "Complete the polite request.",
+                "Customer: Can you ______ me find a shirt?",
+                "help"
+            ),
+
+            OpcionMultiple(
+                "Choose the seller's response.",
+                "Customer: Is there a discount on this item?\nSeller:",
+                listOf("Yes, it’s 20% off.", "No, it’s sold out.", "It’s not here."),
+                "Yes, it’s 20% off."
+            ),
+
+            CompletarFrase(
+                "Translate the sentence.",
+                "Me gustaría comprar esta camisa.",
+                "I would like to buy this shirt."
+            ),
+
+            OpcionMultiple(
+                "Choose the best closing line for a seller.",
+                "Customer: Thank you!\nSeller:",
+                listOf("Have a great day!", "No, thanks.", "It’s okay."),
+                "Have a great day!"
+            ),
+
+            OrdenarPalabras(
+                "Arrange the words to make a customer sentence.",
+                "Arrange the words to form a polite buying request.",
+                listOf("buy", "this", "I'd", "to", "like"),
+                "I'd like to buy this"
+            )
+
         ))
+
 
         val temaA2M4_1 = Tema("Weather vocabulary", "a2m4t1", listOf(
 
