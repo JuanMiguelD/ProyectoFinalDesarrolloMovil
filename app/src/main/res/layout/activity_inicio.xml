@@ -8,8 +8,9 @@
         android:id="@+id/miImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/banner_listas"
-        android:layout_marginTop="-20dp"
+        android:src="@drawable/banner_niveles"
+        android:layout_marginTop="-64dp"
+
     />
 
 
