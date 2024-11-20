@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity :  AppCompatActivity() {
     private lateinit var editEmail: EditText
@@ -52,17 +53,49 @@ class MainActivity :  AppCompatActivity() {
 
     }
 
-    private fun login (email:String, password:String){
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){ task ->
-            if(task.isSuccessful){
-                val intent = Intent(this@MainActivity, InicioActivity::class.java)
-                finish()
-                startActivity(intent)
+    private fun login(email: String, password: String) {
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val currentUser = mAuth.currentUser
+                    if (currentUser != null && currentUser.isEmailVerified) {
 
-            } else{
-                Toast.makeText(this@MainActivity, "Error, el usuario no existe.", Toast.LENGTH_SHORT,).show()
+                        val userId = currentUser.uid
+
+                        val databaseRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(userId).child("Prueba")
+                        databaseRef.get().addOnSuccessListener { snapshot ->
+                            val value = snapshot.getValue(Boolean::class.java) // Cambia el tipo si no es String
+                            if (value!!) {
+                                val intent = Intent(this@MainActivity, InicioActivity::class.java)
+                                finish()
+                                startActivity(intent)
+                            } else {
+                                val intent = Intent(this@MainActivity, Prueba_Clasificacion::class.java)
+                                finish()
+                                startActivity(intent)
+                            }
+                        }
+
+
+
+                    } else {
+                        // Usuario autenticado pero correo no verificado
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Por favor verifica tu correo antes de ingresar.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        mAuth.signOut() // Cerrar sesión si el correo no está verificado
+                    }
+                } else {
+                    // Error en la autenticación
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Error, el usuario no existe o la contraseña es incorrecta.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
-        }
     }
+
 }

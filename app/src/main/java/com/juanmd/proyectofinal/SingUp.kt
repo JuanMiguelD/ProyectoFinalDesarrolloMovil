@@ -56,23 +56,47 @@ class SingUp : AppCompatActivity() {
 
     }
 
-    private fun singUp(name:String,email:String,password:String){
-        mAuth.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(this){
-                    task -> if(task.isSuccessful){
-                println(email)
-                println(password)
-                addUserToDatabase(name,email,mAuth.currentUser?.uid!!)
+    private fun singUp(name: String, email: String, password: String) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Enviar email de verificación
+                    mAuth.currentUser?.sendEmailVerification()
+                        ?.addOnCompleteListener { emailTask ->
+                            if (emailTask.isSuccessful) {
+                                Toast.makeText(
+                                    this@SingUp,
+                                    "Se ha enviado un correo de verificación a $email",
+                                    Toast.LENGTH_SHORT
+                                ).show()
 
-                val intent = Intent(this@SingUp, Prueba_Clasificacion::class.java)
-                finish()
-                startActivity(intent)
-            } else {
-                // Mensaje emergente. como el Alert
-                Toast.makeText(this@SingUp, "Ha ocurrido un error", Toast.LENGTH_SHORT, ).show()
-            }
+                                // Guardar el usuario en la base de datos
+                                addUserToDatabase(name, email, mAuth.currentUser?.uid!!)
+
+                                mAuth.signOut()
+                                val intent = Intent(this@SingUp, MainActivity::class.java)
+                                finish()
+                                startActivity(intent)
+                            } else {
+                                // Error al enviar el correo de verificación
+                                Toast.makeText(
+                                    this@SingUp,
+                                    "Error al enviar el correo de verificación: ${emailTask.exception?.message}",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                } else {
+                    // Error al registrar usuario
+                    Toast.makeText(
+                        this@SingUp,
+                        "Ha ocurrido un error: ${task.exception?.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
     }
+
 
     private fun addUserToDatabase(name: String, email: String, uid: String) {
         // Crear la referencia a la base de datos
@@ -99,11 +123,14 @@ class SingUp : AppCompatActivity() {
             "email" to email,
             "uid" to uid,
             "NivelActual" to "A1",
-            "Progreso" to progreso
-        )
+            "Progreso" to progreso,
+            "Prueba" to false,
+
+            )
 
         // Guarda los datos del usuario en la base de datos
         mDbref.child(uid).setValue(user).addOnSuccessListener {
+
             Log.d("RealtimeDB", "Usuario agregado con éxito")
         }.addOnFailureListener { e ->
             Log.e("RealtimeDB", "Error al agregar usuario: ", e)

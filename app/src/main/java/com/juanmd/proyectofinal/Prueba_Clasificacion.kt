@@ -277,7 +277,7 @@ class Prueba_Clasificacion : AppCompatActivity() {
         val databaseRef = FirebaseDatabase.getInstance().getReference("Usuarios").child(userId).child("Progreso")
 
         FirebaseDatabase.getInstance().getReference("Usuarios").child(userId).child("NivelActual").setValue(niveles[nivelActualIndex])
-
+        FirebaseDatabase.getInstance().getReference("Usuarios").child(userId).child("Prueba").setValue(true)
         // Recorre los niveles hasta el actual y desbloquea cada uno
         for (i in 0..indexActual) {
             val nivel = niveles[i]

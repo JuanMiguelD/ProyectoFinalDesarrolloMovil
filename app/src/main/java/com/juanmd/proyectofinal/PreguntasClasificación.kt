@@ -47,7 +47,7 @@ object PreguntasClasificación {
             OpcionMultiple("Select the correct choice","What does the phrasal verb \"give up\" mean?", listOf("To provide", "To surrender", "To hand over", "To distribute"), "To surrender"),
             OpcionMultiple("Select the correct choice","Which word means \"ambiguous\"?", listOf("Clear", "Precise", "Vague", "Definite"), "Vague"),
             CompletarFrase("Translate:","A pesar de las dificultades, logramos completar el proyecto", "Despite the difficulties, we managed to complete the project"),
-            CompletarFrase("Combine sentences using a relative clause:", "This is the book. I found it yesterday.", "This is the book that I found yesterday.")
+            CompletarFrase("Combine sentences using a relative clause:", "This is the book. I found it yesterday.", "This is the book that I found yesterday")
 
         ),
         "C1" to listOf(

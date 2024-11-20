@@ -1,6 +1,5 @@
 package com.juanmd.proyectofinal
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,14 +7,11 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import android.view.Gravity
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
-import android.widget.MediaController
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -101,7 +97,7 @@ class ClaseActivity : AppCompatActivity() {
 
         } else {
             val respuestaCorrecta =  pregunta.respuesta
-            Toast.makeText(this, "Incorrecto, la respuesta correcta era $respuestaCorrecta: ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Incorrecto, la respuesta correcta era: $respuestaCorrecta ", Toast.LENGTH_SHORT).show()
             vidas -= 1
             indicePreguntaActual++
             if (indicePreguntaActual < tema.ejercicios.size) {
@@ -110,7 +106,7 @@ class ClaseActivity : AppCompatActivity() {
                 mostrarFelicitacion()
             }
 
-            if (vidas == 0){
+            if (vidas <= 0){
                 Toast.makeText(this, "No te preocupes, revisemos el contenido de nuevo ;)", Toast.LENGTH_SHORT).show()
                 indicePreguntaActual = 0
                 preguntasLayout.visibility = View.GONE
@@ -324,7 +320,7 @@ class ClaseActivity : AppCompatActivity() {
             val temaCompletado = tema.nombre // Asumiendo que la clase Tema tiene un atributo 'nombre'
             dbRef.child("Progreso").child(ContenidoSingleton.nivelSeleccionado?.nombre.toString()).child("Modulos").child(ContenidoSingleton.moduloSeleccionado?.nombre.toString()).child("Temas").child(temaCompletado).setValue(true)
                 .addOnSuccessListener {
-                    Log.d("ClaseActivity", "Tema $temaCompletado marcado como completado.")
+                    Log.d("ClaseActivity", "Tema $temaCompletado completado.")
                 }
                 .addOnFailureListener { e ->
                     Log.e("ClaseActivity", "Error al marcar el tema como completado: ", e)

@@ -26,8 +26,8 @@ object ContenidoSingleton {
             OpcionMultiple(
                 "Select the correct greeting for a business meeting.",
                 "Which is a formal greeting?",
-                listOf("Hey, how's it going?", "Good morning, everyone.", "What's up?"),
-                "Good morning, everyone."
+                listOf("Hey, how's it going?", "Good morning, everyone", "What's up?"),
+                "Good morning, everyone"
             ),
 
             OpcionMultiple(
@@ -130,11 +130,11 @@ object ContenidoSingleton {
                 "He"
             ),
 
-            OpcionMultiple(
-                "Select the best introduction phrase for a formal event.",
-                "Choose the correct option:",
-                listOf("Hey, this is John.", "I’d like to introduce myself, I'm John.", "Yo, I'm John."),
-                "I’d like to introduce myself, I'm John"
+            OrdenarPalabras(
+                "Arrange the words to introduce two people.",
+                "",
+                listOf("meet", "Lisa", "to", "like", "would", "I", "you"),
+                "I would like you to meet Lisa "
             ),
 
             OpcionMultiple(
@@ -144,11 +144,7 @@ object ContenidoSingleton {
                 "False"
             ),
 
-            CompletarFrase(
-                "Fill the Blanks :",
-                "I _____ like to introduce myself. I am Ana.",
-                "would"
-            ),
+
 
             CompletarFrase(
                 "Complete the phrase for a casual introduction.",
@@ -170,10 +166,15 @@ object ContenidoSingleton {
                 "False"
             ),
 
-            CompletarFrase(
-                "Fill the Blanks :",
-                "I _____ like to introduce myself. I am Ana.",
-                "would"
+            OpcionMultiple(
+                "Select the most informal way to introduce yourself",
+                "Choose the best option:",
+                listOf(
+                    "Pleased to make your acquaintance",
+                    "Hi, I'm Jack",
+                    "Allow me to introduce myself"
+                ),
+                "Hi, I'm Jack"
             )
             
 
@@ -210,8 +211,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella es de México.",
-                "She is from Mexico."
+                "Ella es de México",
+                "She is from Mexico"
             ),
 
             OrdenarPalabras(
@@ -243,8 +244,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Soy de Australia.",
-                "I am from Australia."
+                "Soy de Australia",
+                "I am from Australia"
             )
 
         ))
@@ -280,8 +281,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Estoy nervioso por el examen.",
-                "I am nervous about the exam."
+                "Estoy nervioso por el examen",
+                "I am nervous about the exam"
             ),
 
             OrdenarPalabras(
@@ -313,8 +314,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Él está feliz con su nuevo trabajo.",
-                "He is happy with his new job."
+                "Él está feliz con su nuevo trabajo",
+                "He is happy with his new job"
             )
 
 
@@ -323,7 +324,7 @@ object ContenidoSingleton {
         val temaA1M2_1 = Tema("Cardinal and ordinal numbers", "a1m2t1", listOf(
 
             OrdenarPalabras(
-                "Arrange the words to make a sentence with a cardinal number.",
+                "Arrange the words to make a sentence with a cardinal number",
                 "",
                 listOf("I", "have", "three", "cats"),
                 "I have three cats"
@@ -351,8 +352,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Él vive en el quinto piso.",
-                "He lives on the fifth floor."
+                "Él vive en el quinto piso",
+                "He lives on the fifth floor"
             ),
 
             OrdenarPalabras(
@@ -384,8 +385,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Tengo dos hermanos.",
-                "I have two brothers."
+                "Tengo dos hermanos",
+                "I have two brothers"
             )
 
 
@@ -422,8 +423,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "El verano comienza en junio.",
-                "Summer starts in June."
+                "El verano comienza en junio",
+                "Summer starts in June"
             ),
 
             OrdenarPalabras(
@@ -455,8 +456,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi estación favorita es otoño, que comienza en septiembre.",
-                "My favorite season is fall, which starts in September."
+                "Mi estación favorita es otoño, que comienza en septiembre",
+                "My favorite season is fall, which starts in September"
             )
 
 
@@ -488,7 +489,7 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Es la una y cuarto.",
+                "Es la una y cuarto",
                 "It is a quarter past one"
             ),
 
@@ -612,8 +613,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi cumpleaños es el 10 de noviembre.",
-                "My birthday is on November 10th."
+                "Mi cumpleaños es el 10 de noviembre",
+                "My birthday is on November 10th"
             )
 
 
@@ -677,8 +678,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ellos son mis abuelos.",
-                "They are my grandparents."
+                "Ellos son mis abuelos",
+                "They are my grandparents"
             ),
 
             OrdenarPalabras(
@@ -790,8 +791,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi hermano es muy simpático.",
-                "My brother is very nice."
+                "Mi hermano es muy simpático",
+                "My brother is very nice"
             )
 
         ))
@@ -866,8 +867,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella es muy perezosa.",
-                "She is very lazy."
+                "Ella es muy perezosa",
+                "She is very lazy"
             )
 
         ))
@@ -943,8 +944,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi conejo es muy pequeño.",
-                "My rabbit is very small."
+                "Mi conejo es muy pequeño",
+                "My rabbit is very small"
             )
 
         ))
@@ -1001,8 +1002,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "La lámpara está en la mesa.",
-                "The lamp is on the table."
+                "La lámpara está en la mesa",
+                "The lamp is on the table"
             ),
 
             OrdenarPalabras(
@@ -1038,8 +1039,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi camisa es verde.",
-                "My shirt is green."
+                "Mi camisa es verde",
+                "My shirt is green"
             ),
 
             OrdenarPalabras(
@@ -1091,7 +1092,7 @@ object ContenidoSingleton {
             ),
 
             CompletarFrase(
-                "Translate:",
+                "fill the blank:",
                 "The sun is _____.",
                 "yellow"
             )
@@ -1150,8 +1151,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mis zapatos son blancos.",
-                "My shoes are white."
+                "Mis zapatos son blancos",
+                "My shoes are white"
             ),
 
             OrdenarPalabras(
@@ -1176,8 +1177,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella tiene una chaqueta azul.",
-                "She has a blue jacket."
+                "Ella tiene una chaqueta azul",
+                "She has a blue jacket"
             )
 
         ))
@@ -1200,8 +1201,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Tengo una mochila roja.",
-                "I have a red backpack."
+                "Tengo una mochila roja",
+                "I have a red backpack"
             ),
 
             OrdenarPalabras(
@@ -1233,8 +1234,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi cuaderno está en la mesa.",
-                "My notebook is on the table."
+                "Mi cuaderno está en la mesa",
+                "My notebook is on the table"
             ),
 
             OrdenarPalabras(
@@ -1278,8 +1279,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Voy al trabajo en coche.",
-                "I go to work by car."
+                "Voy al trabajo en coche",
+                "I go to work by car"
             ),
 
             OrdenarPalabras(
@@ -1331,8 +1332,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Me levanto temprano todos los días.",
-                "I wake up early every day."
+                "Me levanto temprano todos los días",
+                "I wake up early every day"
             )
 
         ))
@@ -1382,8 +1383,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella trabaja por la tarde.",
-                "She works in the afternoon."
+                "Ella trabaja por la tarde",
+                "She works in the afternoon"
             ),
 
             OrdenarPalabras(
@@ -1402,8 +1403,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Me gusta tomar café por la mañana.",
-                "I like to drink coffee in the morning."
+                "Me gusta tomar café por la mañana",
+                "I like to drink coffee in the morning"
             ),
 
             OpcionMultiple(
@@ -1521,8 +1522,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Él corre en el parque todos los días.",
-                "He runs in the park every day."
+                "Él corre en el parque todos los días",
+                "He runs in the park every day"
             ),
 
             OrdenarPalabras(
@@ -1554,8 +1555,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Nosotros jugamos fútbol los fines de semana.",
-                "We play football on weekends."
+                "Nosotros jugamos fútbol los fines de semana",
+                "We play football on weekends"
             ),
 
             OrdenarPalabras(
@@ -1580,8 +1581,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Yo estudio inglés todos los días.",
-                "I study English every day."
+                "Yo estudio inglés todos los días",
+                "I study English every day"
             )
 
         ))
@@ -1632,8 +1633,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "A mí me gusta bailar salsa.",
-                "I like to dance salsa."
+                "A mí me gusta bailar salsa",
+                "I like to dance salsa"
             ),
 
             OrdenarPalabras(
@@ -1665,8 +1666,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella juega al tenis con sus amigos.",
-                "She plays tennis with her friends."
+                "Ella juega al tenis con sus amigos",
+                "She plays tennis with her friends"
             )
         ))
 
@@ -1688,8 +1689,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Me gusta bailar.",
-                "I like to dance."
+                "Me gusta bailar",
+                "I like to dance"
             ),
 
             OrdenarPalabras(
@@ -1743,8 +1744,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "A ella le gusta leer libros.",
-                "She likes to read books."
+                "A ella le gusta leer libros",
+                "She likes to read books"
             )
 
         ))
@@ -1765,8 +1766,8 @@ object ContenidoSingleton {
             ),
 
             CompletarFrase(
-                "Complete the sentence with the correct response.",
-                "I can’t come to your party because I _____ work.",
+                "Complete the sentence with the correct response",
+                "I can’t come to your party because I _____ work",
                 "have to"
             ),
 
@@ -1836,8 +1837,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Voy a ver una película el domingo.",
-                "I am going to watch a movie on Sunday."
+                "Voy a ver una película el domingo",
+                "I am going to watch a movie on Sunday"
             ),
 
             OrdenarPalabras(
@@ -1870,8 +1871,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Nosotros vamos a hacer una barbacoa el sábado.",
-                "We are going to have a barbecue on Saturday."
+                "Nosotros vamos a hacer una barbacoa el sábado",
+                "We are going to have a barbecue on Saturday"
             ),
 
             OrdenarPalabras(
@@ -2103,8 +2104,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate the sentence about price.",
-                "El precio es de 30 euros.",
-                "The price is 30 euros."
+                "El precio es de 30 euros",
+                "The price is 30 euros"
             )
 
         ))
@@ -2113,8 +2114,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate the dialogue.",
-                "Cliente: ¿Cuánto cuesta este libro?\nVendedor: Cuesta 15 euros.",
-                "Customer: How much does this book cost?\nSeller: It costs 15 euros."
+                "Cliente: ¿Cuánto cuesta este libro?",
+                "Customer: How much does this book cost?"
             ),
 
             OpcionMultiple(
@@ -2159,8 +2160,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate the sentence.",
-                "Me gustaría comprar esta camisa.",
-                "I would like to buy this shirt."
+                "Me gustaría comprar esta camisa",
+                "I would like to buy this shirt"
             ),
 
             OpcionMultiple(
@@ -2263,8 +2264,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "La primavera es mi estación favorita.",
-                "Spring is my favorite season."
+                "La primavera es mi estación favorita",
+                "Spring is my favorite season"
             ),
 
             CompletarFrase(
@@ -2283,8 +2284,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "El invierno es frío y oscuro.",
-                "Winter is cold and dark."
+                "El invierno es frío y oscuro",
+                "Winter is cold and dark"
             ),
 
             OrdenarPalabras(
@@ -2339,8 +2340,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "En otoño, la gente recoge hojas.",
-                "In autumn, people rake leaves."
+                "En otoño, la gente recoge hojas",
+                "In autumn, people rake leaves"
             ),
 
             OrdenarPalabras(
@@ -2440,8 +2441,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Uso botas cuando está nevando.",
-                "I wear boots when it’s snowing."
+                "Uso botas cuando está nevando",
+                "I wear boots when it’s snowing"
             ),
 
             OrdenarPalabras(
@@ -2487,8 +2488,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi padre es un abogado.",
-                "My father is a lawyer."
+                "Mi padre es un abogado",
+                "My father is a lawyer"
             ),
 
             OrdenarPalabras(
@@ -2535,8 +2536,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Mi hermana es una dentista.",
-                "My sister is a dentist."
+                "Mi hermana es una dentista",
+                "My sister is a dentist"
             )
 
 
@@ -2607,8 +2608,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Él tiene experiencia en ventas y marketing.",
-                "He has experience in sales and marketing."
+                "Él tiene experiencia en ventas y marketing",
+                "He has experience in sales and marketing"
             )
 
         ))
@@ -2637,8 +2638,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Él toma un descanso a las 10 de la mañana.",
-                "He takes a break at 10 in the morning."
+                "Él toma un descanso a las 10 de la mañana",
+                "He takes a break at 10 in the morning"
             ),
 
             CompletarFrase(
@@ -2676,8 +2677,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella revisa sus correos electrónicos todas las mañanas.",
-                "She checks her emails every morning."
+                "Ella revisa sus correos electrónicos todas las mañanas",
+                "She checks her emails every morning"
             )
 
         ))
@@ -2862,8 +2863,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella tiene un resfriado y está tosiendo mucho.",
-                "She has a cold and is coughing a lot."
+                "Ella tiene un resfriado y está tosiendo mucho",
+                "She has a cold and is coughing a lot"
             ),
 
             OrdenarPalabras(
@@ -2991,8 +2992,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Hacer ejercicio todos los días es bueno para la salud.",
-                "Exercising every day is good for your health."
+                "Hacer ejercicio todos los días es bueno para la salud",
+                "Exercising every day is good for your health"
             ),
 
             OrdenarPalabras(
@@ -3028,8 +3029,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Tomar descansos regulares durante el trabajo es beneficioso.",
-                "Taking regular breaks during work is beneficial."
+                "Tomar descansos regulares durante el trabajo es beneficioso",
+                "Taking regular breaks during work is beneficial"
             )
 
         ))
@@ -3075,8 +3076,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Voy a cargar mi portátil antes de la reunión.",
-                "I am going to charge my laptop before the meeting."
+                "Voy a cargar mi portátil antes de la reunión",
+                "I am going to charge my laptop before the meeting"
             ),
 
             OrdenarPalabras(
@@ -3148,8 +3149,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Ella siempre revisa las redes sociales por la mañana.",
-                "She always checks social media in the morning."
+                "Ella siempre revisa las redes sociales por la mañana",
+                "She always checks social media in the morning"
             ),
 
             OrdenarPalabras(
@@ -3234,8 +3235,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "Necesito escanear este documento y enviarlo por correo electrónico.",
-                "I need to scan this document and send it by email."
+                "Necesito escanear este documento y enviarlo por correo electrónico",
+                "I need to scan this document and send it by email"
             ),
 
             CompletarFrase(
@@ -3320,8 +3321,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "El sistema operativo necesita ser actualizado.",
-                "The operating system needs to be updated."
+                "El sistema operativo necesita ser actualizado",
+                "The operating system needs to be updated"
             )
 
         ))
@@ -3434,8 +3435,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "El festival de las linternas en Tailandia es muy famoso.",
-                "The lantern festival in Thailand is very famous."
+                "El festival de las linternas en Tailandia es muy famoso",
+                "The lantern festival in Thailand is very famous"
             ),
 
             OrdenarPalabras(
@@ -3613,8 +3614,8 @@ object ContenidoSingleton {
 
             CompletarFrase(
                 "Translate:",
-                "En muchas culturas, mostrar respeto a los mayores es fundamental.",
-                "In many cultures, showing respect to elders is essential."
+                "En muchas culturas, mostrar respeto a los mayores es fundamental",
+                "In many cultures, showing respect to elders is essential"
             )
 
         ))

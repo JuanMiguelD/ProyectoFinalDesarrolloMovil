@@ -61,8 +61,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Ella es de México.",
-                "She is from Mexico."
+                "Ella es de México",
+                "She is from Mexico"
             ),
 
             OrdenarPalabras(
@@ -125,8 +125,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Él vive en el quinto piso.",
-                "He lives on the fifth floor."
+                "Él vive en el quinto piso",
+                "He lives on the fifth floor"
             ),
 
             OrdenarPalabras(
@@ -164,8 +164,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Mi estación favorita es otoño, que comienza en septiembre.",
-                "My favorite season is fall, which starts in September."
+                "Mi estación favorita es otoño, que comienza en septiembre",
+                "My favorite season is fall, which starts in September"
             ),
 
             OpcionMultiple(
@@ -177,7 +177,7 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Es la una y cuarto.",
+                "Es la una y cuarto",
                 "It is a quarter past one"
             ),
 
@@ -413,8 +413,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Ella tiene una chaqueta azul.",
-                "She has a blue jacket."
+                "Ella tiene una chaqueta azul",
+                "She has a blue jacket"
             ),
 
             CompletarFrase(
@@ -471,8 +471,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Voy al trabajo en coche.",
-                "I go to work by car."
+                "Voy al trabajo en coche",
+                "I go to work by car"
             ),
 
             OpcionMultiple(
@@ -554,8 +554,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Yo estudio inglés todos los días.",
-                "I study English every day."
+                "Yo estudio inglés todos los días",
+                "I study English every day"
             )
 
             ),
@@ -570,8 +570,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Me gusta bailar.",
-                "I like to dance."
+                "Me gusta bailar",
+                "I like to dance"
             ),
 
             OrdenarPalabras(
@@ -656,8 +656,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Voy a ver una película el domingo.",
-                "I am going to watch a movie on Sunday."
+                "Voy a ver una película el domingo",
+                "I am going to watch a movie on Sunday"
             ),
 
             OrdenarPalabras(
@@ -754,8 +754,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate the dialogue.",
-                "Cliente: ¿Cuánto cuesta este libro?\nVendedor: Cuesta 15 euros.",
-                "Customer: How much does this book cost?\nSeller: It costs 15 euros."
+                "Cliente: ¿Cuánto cuesta este libro?",
+                "Customer: How much does this book cost?"
             ),
 
             OpcionMultiple(
@@ -818,8 +818,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "La primavera es mi estación favorita.",
-                "Spring is my favorite season."
+                "La primavera es mi estación favorita",
+                "Spring is my favorite season"
             ),
 
             CompletarFrase(
@@ -850,8 +850,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "En otoño, la gente recoge hojas.",
-                "In autumn, people rake leaves."
+                "En otoño, la gente recoge hojas",
+                "In autumn, people rake leaves"
             ),
 
             OrdenarPalabras(
@@ -910,8 +910,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Mi padre es un abogado.",
-                "My father is a lawyer."
+                "Mi padre es un abogado",
+                "My father is a lawyer"
             ),
 
             OrdenarPalabras(
@@ -956,8 +956,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Él toma un descanso a las 10 de la mañana.",
-                "He takes a break at 10 in the morning."
+                "Él toma un descanso a las 10 de la mañana",
+                "He takes a break at 10 in the morning"
             ),
 
             CompletarFrase(
@@ -1084,8 +1084,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Hacer ejercicio todos los días es bueno para la salud.",
-                "Exercising every day is good for your health."
+                "Hacer ejercicio todos los días es bueno para la salud",
+                "Exercising every day is good for your health"
             ),
 
             OrdenarPalabras(
@@ -1104,8 +1104,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Tomar descansos regulares durante el trabajo es beneficioso.",
-                "Taking regular breaks during work is beneficial."
+                "Tomar descansos regulares durante el trabajo es beneficioso",
+                "Taking regular breaks during work is beneficial"
             )
 
 
@@ -1132,8 +1132,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Voy a cargar mi portátil antes de la reunión.",
-                "I am going to charge my laptop before the meeting."
+                "Voy a cargar mi portátil antes de la reunión",
+                "I am going to charge my laptop before the meeting"
             ),
 
             OrdenarPalabras(
@@ -1167,8 +1167,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "Ella siempre revisa las redes sociales por la mañana.",
-                "She always checks social media in the morning."
+                "Ella siempre revisa las redes sociales por la mañana",
+                "She always checks social media in the morning"
             ),
 
             OpcionMultiple(
@@ -1282,8 +1282,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "El festival de las linternas en Tailandia es muy famoso.",
-                "The lantern festival in Thailand is very famous."
+                "El festival de las linternas en Tailandia es muy famoso",
+                "The lantern festival in Thailand is very famous"
             ),
 
             OrdenarPalabras(
@@ -1336,8 +1336,8 @@ object PreguntasModulo {
 
             CompletarFrase(
                 "Translate:",
-                "En muchas culturas, mostrar respeto a los mayores es fundamental.",
-                "In many cultures, showing respect to elders is essential."
+                "En muchas culturas, mostrar respeto a los mayores es fundamental",
+                "In many cultures, showing respect to elders is essential"
             )
 
 
