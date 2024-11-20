@@ -1,5 +1,6 @@
 package com.juanmd.proyectofinal
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,9 @@ class TemaAdapter(
     override fun onBindViewHolder(holder: TemaViewHolder, position: Int) {
         val tema = temas[position]
         holder.textView.text = tema.nombre
-        holder.itemView.setOnClickListener { onItemClick(tema) }
+        holder.textView.setTextColor(Color.WHITE)
+        holder.itemView.setOnClickListener { onItemClick(tema)
+        }
     }
 
     override fun getItemCount(): Int {

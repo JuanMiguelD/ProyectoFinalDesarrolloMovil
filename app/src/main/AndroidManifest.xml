@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
         <activity
+            android:name=".RecoverPass"
+            android:exported="false" />
+        <activity
             android:name=".Prueba_Clasificacion"
             android:exported="false" />
         <activity

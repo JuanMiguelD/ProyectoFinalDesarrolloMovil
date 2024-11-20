@@ -28,7 +28,7 @@ class ModuloAdapter(
             holder.textView.setTextColor(Color.GRAY)  // Cambiar el color del texto a gris
         } else {
             holder.itemView.isEnabled = true
-            holder.textView.setTextColor(Color.BLACK)  // Color normal para módulos accesibles
+            holder.textView.setTextColor(Color.WHITE)  // Color normal para módulos accesibles
             holder.itemView.setOnClickListener { onItemClick(modulo) }
         }
     }

@@ -110,13 +110,4 @@ class SingUp : AppCompatActivity() {
         }
     }
 
-
-
-
-
-
-
-
-
-
 }
