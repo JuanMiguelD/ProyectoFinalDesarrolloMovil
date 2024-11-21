@@ -56,7 +56,7 @@ class InicioActivity : AppCompatActivity() {
 
     private fun irAModulos(nivel: Nivel) {
         ContenidoSingleton.nivelSeleccionado = nivel
-        if (nivel.equals("B2")){
+        if (nivel.equals("B2") || nivel.equals("C1") || nivel.equals("C2")){
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("You don't have access!")
 
