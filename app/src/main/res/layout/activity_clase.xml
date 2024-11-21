@@ -34,6 +34,8 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
         android:text="Siguiente"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imagen"
 
