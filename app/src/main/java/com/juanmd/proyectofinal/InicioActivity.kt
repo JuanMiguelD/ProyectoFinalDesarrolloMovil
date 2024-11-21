@@ -3,6 +3,7 @@ package com.juanmd.proyectofinal
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,8 +56,23 @@ class InicioActivity : AppCompatActivity() {
 
     private fun irAModulos(nivel: Nivel) {
         ContenidoSingleton.nivelSeleccionado = nivel
-        val intent = Intent(this, ModulosActivity::class.java)
-        startActivity(intent)
+        if (nivel.equals("B2")){
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("You don't have access!")
+
+                builder.setMessage(" Para  desbloquear el contenido contáctate con informacion@universalcorp.edu.co y disfruta de la experiencia completa")
+                builder.setPositiveButton("Aceptar") { dialog, _ ->
+                    dialog.dismiss()
+
+                val alertDialog = builder.create()
+                alertDialog.show()
+            }
+
+        } else {
+            val intent = Intent(this, ModulosActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun esNivelDesbloqueado(nivel: Nivel): Boolean {

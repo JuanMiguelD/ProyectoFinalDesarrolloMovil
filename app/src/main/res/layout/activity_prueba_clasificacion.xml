@@ -35,7 +35,7 @@
 
 
         <TextView
-            android:layout_marginTop="190dp"
+            android:layout_marginTop="200dp"
             android:id="@+id/infoPrueba"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

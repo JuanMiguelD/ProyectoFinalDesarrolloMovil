@@ -87,6 +87,8 @@ class Prueba_Clasificacion : AppCompatActivity() {
                 iniciarPrueba()
             }
         } else {
+            preguntaActualIndex++
+            preguntaprogressBarIndice++
             Toast.makeText(this, "Incorrecto", Toast.LENGTH_SHORT).show()
             erroresPorNivel[niveles[nivelActualIndex]] = erroresPorNivel[niveles[nivelActualIndex]]!! + 1
             if (erroresPorNivel[niveles[nivelActualIndex]] == 3){

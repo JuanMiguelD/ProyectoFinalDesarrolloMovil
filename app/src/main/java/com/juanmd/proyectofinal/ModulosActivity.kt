@@ -53,6 +53,7 @@ class ModulosActivity : AppCompatActivity() {
                 moduloActual = snapshot.child("Progreso").child(nivel.nombre).child("ModuloActual").getValue(Int::class.java) ?: 1
 
                 // Configurar RecyclerView después de obtener los datos del usuario
+                if(moduloActual < 6)
                 recyclerViewModulos = findViewById(R.id.lista_modulos)
                 recyclerViewModulos.layoutManager = LinearLayoutManager(this)
                 recyclerViewModulos.adapter = ModuloAdapter(nivel.modulos, moduloActual) { moduloSeleccionado ->
