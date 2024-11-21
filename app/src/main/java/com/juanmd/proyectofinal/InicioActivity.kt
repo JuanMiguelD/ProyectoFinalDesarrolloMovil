@@ -56,17 +56,16 @@ class InicioActivity : AppCompatActivity() {
 
     private fun irAModulos(nivel: Nivel) {
         ContenidoSingleton.nivelSeleccionado = nivel
-        if (nivel.equals("B2") || nivel.equals("C1") || nivel.equals("C2")){
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("You don't have access!")
-
-                builder.setMessage(" Para  desbloquear el contenido contáctate con informacion@universalcorp.edu.co y disfruta de la experiencia completa")
-                builder.setPositiveButton("Aceptar") { dialog, _ ->
-                    dialog.dismiss()
-
-                val alertDialog = builder.create()
-                alertDialog.show()
+        if (nivel.nombre.equals("B2") || nivel.nombre.equals("C1") || nivel.nombre.equals("C2")){
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("You don't have access!")
+            builder.setMessage("Para desbloquear el contenido, contáctate con informacion@universalcorp.edu.co y disfruta de la experiencia completa.")
+            builder.setPositiveButton("Aceptar") { dialog, _ ->
+                dialog.dismiss()
             }
+
+            val alertDialog = builder.create()
+            alertDialog.show()
 
         } else {
             val intent = Intent(this, ModulosActivity::class.java)
